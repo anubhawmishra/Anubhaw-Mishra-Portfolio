@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-dark-bg text-text-primary font-mono antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    @apply bg-accent-glow text-dark-bg;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-color rounded;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(13, 17, 23, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(57, 211, 83, 0.15);
+  }
+
+  .glass-strong {
+    background: rgba(1, 4, 9, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(57, 211, 83, 0.2);
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #39d353 0%, #58e070 50%, #39d353 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: text-shimmer 4s ease-in-out infinite;
+  }
+
+  .section-title-line {
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .section-title-line::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #238636, #39d353);
+    border-radius: 2px;
+  }
+
+  .glow-shadow {
+    box-shadow: 0 0 30px rgba(57, 211, 83, 0.25);
+  }
+
+  .glow-shadow-lg {
+    box-shadow: 0 0 60px rgba(57, 211, 83, 0.4);
+  }
+
+  .premium-card {
+    @apply glass rounded-2xl p-6 transition-all duration-300;
+    background-image: linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(1, 4, 9, 0.95) 100%);
+  }
+
+  .premium-card:hover {
+    border-color: rgba(57, 211, 83, 0.5);
+    box-shadow: 0 10px 40px rgba(57, 211, 83, 0.2);
+    transform: translateY(-4px);
+  }
+}

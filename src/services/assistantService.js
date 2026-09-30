@@ -15,7 +15,42 @@ export function getLocalAssistantResponse(userQuery) {
     };
   }
 
-  // 1. Projects - JARVIS
+  // 1. Identity & Portfolio Owner / "Who is Anubhaw?"
+  if (
+    query.includes('owner') ||
+    query.includes('whose') ||
+    query.includes('who is') ||
+    query.includes('who created') ||
+    query.includes('who made') ||
+    query.includes('who built this') ||
+    query.includes('about anubhaw') ||
+    query.includes('tell me about anubhaw') ||
+    query.includes('introduction') ||
+    query === 'anubhaw' ||
+    query === 'anubhaw mishra'
+  ) {
+    const isOwnerQuery = query.includes('owner') || query.includes('whose') || query.includes('created') || query.includes('made') || query.includes('built this');
+    return {
+      reply: `${isOwnerQuery ? 'This portfolio is owned and created by **Anubhaw Mishra**.\n\n' : ''}**Anubhaw Mishra** is a Software Engineer and 2026 Computer Science graduate (Honors in Cyber Security) from Savitribai Phule Pune University (CGPA 7.50/10).
+
+He specializes in Full-Stack Development and AI integration, building production applications with React.js, Node.js, Express.js, PostgreSQL, and Python. His flagship projects include **JARVIS** (AI Resume Matcher with live ATS scoring), **JobTrack** (Full-Stack Application Tracker), **PITCH™** (Cricket E-Commerce with the FRIDAY Gemini assistant), and a peer-reviewed **Deepfake Detection System** (95%+ reported accuracy).
+
+Would you like to explore his projects, technical stack, or research publications?`,
+      smartCards: [
+        {
+          title: 'Explore Featured Work',
+          tech: 'Full-Stack · AI/ML · Systems',
+          links: [
+            { label: 'View JARVIS Live', url: 'https://frontend-eight-xi-61.vercel.app/', primary: true },
+            { label: 'View JobTrack Live', url: 'https://job-application-tracker-eosin-gamma.vercel.app/' },
+          ],
+        },
+      ],
+      mode: 'grounded-local',
+    };
+  }
+
+  // 2. Projects - JARVIS
   if (
     query.includes('jarvis') ||
     query.includes('resume') ||
@@ -373,18 +408,24 @@ He brings hands-on experience building production React/Node.js/PostgreSQL appli
     };
   }
 
-  // 13. General "Who is Anubhaw?" / Intro
+  // 13. General "Who is Anubhaw?" / Portfolio Owner / Intro
   if (
+    query.includes('owner') ||
+    query.includes('whose') ||
     query.includes('who is') ||
     query.includes('about anubhaw') ||
     query.includes('tell me about') ||
     query.includes('introduction') ||
+    query.includes('who built') ||
+    query.includes('who created') ||
+    query.includes('who made') ||
     query.includes('hello') ||
     query.includes('hi') ||
     query.includes('hey')
   ) {
+    const isOwnerQuery = query.includes('owner') || query.includes('whose');
     return {
-      reply: `**Anubhaw Mishra** is a Software Engineer and 2026 Computer Science graduate (Honors in Cyber Security) from Savitribai Phule Pune University (CGPA 7.50/10).
+      reply: `${isOwnerQuery ? 'This portfolio is owned and created by **Anubhaw Mishra**.\n\n' : ''}**Anubhaw Mishra** is a Software Engineer and 2026 Computer Science graduate (Honors in Cyber Security) from Savitribai Phule Pune University (CGPA 7.50/10).
 
 He specializes in Full-Stack Development and AI integration, building production applications with React.js, Node.js, Express.js, PostgreSQL, and Python. His flagship projects include **JARVIS** (AI Resume Matcher with live ATS scoring), **JobTrack** (Full-Stack Application Tracker), **PITCH™** (Cricket E-Commerce with the FRIDAY Gemini assistant), and a peer-reviewed **Deepfake Detection System** (95%+ reported accuracy).
 

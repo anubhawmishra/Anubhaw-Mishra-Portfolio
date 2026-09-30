@@ -322,7 +322,8 @@ export const publications = [
 ];
 
 export const education = {
-  institution: 'Savitribai Phule Pune University',
+  institution: 'Sinhgad Institute of Technology and Science (SITS)',
+  university: 'Savitribai Phule Pune University (SPPU)',
   degree: 'Bachelor of Engineering (B.E.) in Computer Science',
   honors: 'Honors in Cyber Security',
   duration: 'Feb 2021 – Feb 2026',
@@ -337,6 +338,49 @@ export const education = {
     'Software Engineering',
   ],
 };
+
+export const educationHistory = [
+  {
+    level: 'Bachelor of Engineering (B.E.)',
+    degree: 'B.E. in Computer Science',
+    honors: 'Honors in Cyber Security',
+    institution: 'Sinhgad Institute of Technology and Science (SITS)',
+    university: 'Savitribai Phule Pune University (SPPU)',
+    location: 'Pune, Maharashtra, India',
+    duration: 'Feb 2021 – Feb 2026',
+    scoreLabel: 'CGPA',
+    score: '7.50 / 10',
+    status: 'Current',
+    badge: 'Undergraduate Degree',
+    highlights: 'Algorithms, DBMS, Networks, OS, Software Engineering & Cyber Security.',
+  },
+  {
+    level: 'Senior Secondary / 12th',
+    degree: 'Higher Secondary Certificate (HSC) — PCB',
+    institution: 'Rajkiya Yugal Prashad High School',
+    university: 'Bihar School Examination Board (BSEB)',
+    location: 'Bihar, India',
+    duration: '2017 – 2019',
+    scoreLabel: 'Percentage',
+    score: '60%',
+    status: 'Completed',
+    badge: 'Senior Secondary (12th)',
+    highlights: 'Physics, Chemistry, Biology (PCB stream).',
+  },
+  {
+    level: 'Secondary / 10th',
+    degree: 'Secondary School Examination',
+    institution: 'Notre Dame Public School',
+    university: 'Central Board of Secondary Education (CBSE)',
+    location: 'India',
+    duration: 'Completed',
+    scoreLabel: 'CGPA',
+    score: '8.8 CGPA',
+    status: 'Completed',
+    badge: 'Secondary (10th)',
+    highlights: 'CBSE Secondary Education Curriculum with 8.8 CGPA.',
+  },
+];
 
 export const certifications = [
   {
@@ -391,10 +435,34 @@ export const assistantKnowledge = {
     leetcode: 'https://leetcode.com/u/Anubhaw_M',
   },
   education: {
-    institution: 'Savitribai Phule Pune University',
+    institution: 'Sinhgad Institute of Technology and Science (SITS)',
+    university: 'Savitribai Phule Pune University (SPPU)',
     degree: 'B.E. in Computer Science (Honors in Cyber Security)',
     duration: 'February 2021 – February 2026',
     cgpa: '7.50 / 10',
+    history: [
+      {
+        level: 'B.E. in Computer Science (Honors in Cyber Security)',
+        institution: 'Sinhgad Institute of Technology and Science (SITS)',
+        university: 'Savitribai Phule Pune University (SPPU)',
+        duration: 'Feb 2021 – Feb 2026',
+        score: '7.50 / 10 CGPA',
+      },
+      {
+        level: 'Class 12th (Senior Secondary) — PCB',
+        institution: 'Rajkiya Yugal Prashad High School',
+        board: 'Bihar School Examination Board (BSEB)',
+        duration: '2017 – 2019',
+        score: '60%',
+        stream: 'PCB (Physics, Chemistry, Biology)',
+      },
+      {
+        level: 'Class 10th (Secondary)',
+        institution: 'Notre Dame Public School',
+        board: 'Central Board of Secondary Education (CBSE)',
+        score: '8.8 CGPA',
+      },
+    ],
     coursework: [
       'Data Structures & Algorithms',
       'Database Management Systems',

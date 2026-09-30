@@ -200,7 +200,41 @@ Which project would you like to explore in detail?`,
     };
   }
 
-  // 6. Education / Degree / College / CGPA / University
+  // 6a. 10th / Secondary School Queries
+  if (
+    query.includes('10th') ||
+    query.includes('tenth') ||
+    query.includes('matric') ||
+    query.includes('secondary school') ||
+    query.includes('notre dame')
+  ) {
+    return {
+      reply: `**Class 10th (Secondary School) Details:**\n\n• **School**: Notre Dame Public School\n• **Board**: Central Board of Secondary Education (CBSE)\n• **Result**: **8.8 CGPA** (strictly recorded as 8.8 CGPA)`,
+      smartCards: null,
+      mode: 'grounded-local',
+    };
+  }
+
+  // 6b. 12th / Senior Secondary / Higher Secondary Queries
+  if (
+    query.includes('12th') ||
+    query.includes('twelfth') ||
+    query.includes('inter') ||
+    query.includes('intermediate') ||
+    query.includes('senior secondary') ||
+    query.includes('higher secondary') ||
+    query.includes('yugal') ||
+    query.includes('bseb') ||
+    query.includes('pcb')
+  ) {
+    return {
+      reply: `**Class 12th (Senior Secondary) Details:**\n\n• **School**: Rajkiya Yugal Prashad High School\n• **Board**: Bihar School Examination Board (BSEB)\n• **Stream**: PCB (Physics, Chemistry, Biology)\n• **Duration**: 2017 – 2019\n• **Result**: **60%**`,
+      smartCards: null,
+      mode: 'grounded-local',
+    };
+  }
+
+  // 6c. General Education / College / Degree / University / CGPA
   if (
     query.includes('education') ||
     query.includes('study') ||
@@ -210,19 +244,34 @@ Which project would you like to explore in detail?`,
     query.includes('degree') ||
     query.includes('cgpa') ||
     query.includes('gpa') ||
+    query.includes('marks') ||
+    query.includes('percentage') ||
     query.includes('graduation') ||
     query.includes('school') ||
-    query.includes('sppu')
+    query.includes('sppu') ||
+    query.includes('sits') ||
+    query.includes('sinhgad')
   ) {
     return {
-      reply: `Anubhaw's verified academic credentials:
+      reply: `Anubhaw's verified academic journey:
 
-• **Institution**: Savitribai Phule Pune University (SPPU), Pune, India
-• **Degree**: Bachelor of Engineering (B.E.) in Computer Science
-• **Specialization**: Honors in Cyber Security
-• **Duration**: February 2021 – February 2026
-• **CGPA**: 7.50 / 10
-• **Core Coursework**: Data Structures & Algorithms, Database Management Systems (DBMS), Operating Systems, Computer Networks, Software Engineering, Object-Oriented Programming.`,
+1. **Bachelor of Engineering (B.E.) in Computer Science** (Feb 2021 – Feb 2026)
+   • **College**: Sinhgad Institute of Technology and Science (SITS)
+   • **Affiliation**: Savitribai Phule Pune University (SPPU), Pune
+   • **Specialization**: Honors in Cyber Security
+   • **CGPA**: **7.50 / 10**
+   • **Coursework**: Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks, Software Engineering, OOP
+
+2. **Senior Secondary / Class 12th** (2017 – 2019)
+   • **School**: Rajkiya Yugal Prashad High School
+   • **Board**: Bihar School Examination Board (BSEB)
+   • **Stream**: PCB (Physics, Chemistry, Biology)
+   • **Score**: **60%**
+
+3. **Secondary / Class 10th**
+   • **School**: Notre Dame Public School
+   • **Board**: Central Board of Secondary Education (CBSE)
+   • **Score**: **8.8 CGPA**`,
       smartCards: null,
       mode: 'grounded-local',
     };

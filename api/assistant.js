@@ -20,9 +20,10 @@ PORTFOLIO KNOWLEDGE BASE:
 • Name: Anubhaw Mishra
 • Role: Software Engineer
 • Target Roles: Software Engineer, Software Development Engineer (SDE), Full Stack Developer, Frontend Developer, React Developer
-• Location: Pune, Maharashtra, India
-• Education: B.E. Computer Science with Honors in Cyber Security from Savitribai Phule Pune University (SPPU), Feb 2021 – Feb 2026. CGPA: 7.50 / 10.
-• Core Coursework: Data Structures & Algorithms, Database Management Systems (DBMS), Operating Systems, Computer Networks, Software Engineering, Object-Oriented Programming.
+• Education & Academic Background:
+  - Bachelor of Engineering (B.E.) in Computer Science (Honors in Cyber Security) from Sinhgad Institute of Technology and Science (SITS), affiliated with Savitribai Phule Pune University (SPPU), Feb 2021 – Feb 2026. Cumulative CGPA: 7.50 / 10.
+  - Class 12th / Senior Secondary: Rajkiya Yugal Prashad High School, Bihar School Examination Board (BSEB), Stream: PCB (Physics, Chemistry, Biology), 2017 – 2019. Score: 60%.
+  - Class 10th / Secondary: Notre Dame Public School, Central Board of Secondary Education (CBSE). Score: 8.8 CGPA (strictly 8.8 CGPA, not percentage).
 • Programming Languages: Python, Java, JavaScript, SQL, C.
 • Frontend: React.js, HTML5, CSS3, Tailwind CSS, Responsive Web Design.
 • Backend & APIs: Node.js, Express.js, REST APIs.

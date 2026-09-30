@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pitchBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#021509" />
+      <stop offset="50%" stop-color="#082914" />
+      <stop offset="100%" stop-color="#020e06" />
+    </linearGradient>
+    <linearGradient id="pitchGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22C55E" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+    <filter id="pitchGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#pitchBg)" />
+  <circle cx="700" cy="90" r="160" fill="#22C55E" opacity="0.12" filter="url(#pitchGlow)" />
+  <circle cx="120" cy="380" r="130" fill="#10B981" opacity="0.08" filter="url(#pitchGlow)" />
+
+  <!-- Frame -->
+  <rect x="40" y="35" width="720" height="380" rx="16" fill="#0b1f13" stroke="#164326" stroke-width="1.5" />
+  
+  <!-- Header Bar -->
+  <rect x="40" y="35" width="720" height="48" rx="16" fill="#0f2b1a" />
+  <circle cx="68" cy="59" r="6" fill="#EF4444" opacity="0.8" />
+  <circle cx="88" cy="59" r="6" fill="#F59E0B" opacity="0.8" />
+  <circle cx="108" cy="59" r="6" fill="#10B981" opacity="0.8" />
+  <text x="140" y="64" fill="#4ade80" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" letter-spacing="1">PITCH™ · Cricket E-Commerce Platform</text>
+  <rect x="540" y="47" width="200" height="24" rx="12" fill="#22c55e" fill-opacity="0.15" stroke="#22c55e" stroke-width="1" />
+  <text x="555" y="63" fill="#86efac" font-family="system-ui, sans-serif" font-size="11" font-weight="600">🤖 FRIDAY AI + Razorpay Test</text>
+
+  <!-- Left: Featured Product & Custom Bat Builder -->
+  <rect x="65" y="100" width="370" height="290" rx="12" fill="#0d2617" stroke="#1c542f" stroke-width="1" />
+  <text x="85" y="128" fill="#86efac" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">🏏 Custom Cricket Bat Builder</text>
+  
+  <!-- Bat illustration -->
+  <g transform="translate(90, 145)">
+    <rect x="20" y="0" width="16" height="35" rx="3" fill="#d97706" />
+    <path d="M12 35 L44 35 L40 180 L16 180 Z" fill="#b45309" />
+    <rect x="18" y="45" width="20" height="40" rx="2" fill="#f59e0b" opacity="0.6" />
+    <line x1="28" y1="50" x2="28" y2="175" stroke="#78350f" stroke-width="1.5" />
+    <text x="28" y="110" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" transform="rotate(-90 28 110)">PITCH PRO</text>
+  </g>
+
+  <!-- Spec Controls -->
+  <g transform="translate(160, 145)">
+    <text x="0" y="15" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">English Willow Grade 1</text>
+    <text x="0" y="32" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">Weight: 2lb 8oz · Short Handle</text>
+    
+    <rect x="0" y="45" width="250" height="28" rx="6" fill="#143922" stroke="#23633b" stroke-width="1" />
+    <text x="12" y="63" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">Profile: Full Spine / Deep Mid-Sweetspot</text>
+
+    <rect x="0" y="82" width="250" height="28" rx="6" fill="#143922" stroke="#23633b" stroke-width="1" />
+    <text x="12" y="100" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">Handle: 12-Piece Cane Semi-Oval</text>
+
+    <text x="0" y="140" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="bold">₹ 14,499</text>
+    <rect x="120" y="122" width="130" height="28" rx="6" fill="#22c55e" />
+    <text x="145" y="141" fill="#052e16" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Add To Cart 🛒</text>
+  </g>
+
+  <rect x="85" y="340" width="330" height="35" rx="6" fill="#11331e" />
+  <text x="100" y="362" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="10.5">Secure Checkout · Razorpay Test Mode · Prisma ORM</text>
+
+  <!-- Right: FRIDAY AI Shopping Assistant -->
+  <rect x="455" y="100" width="280" height="290" rx="12" fill="#0d2617" stroke="#1c542f" stroke-width="1" />
+  <circle cx="480" cy="128" r="12" fill="#22c55e" fill-opacity="0.2" />
+  <circle cx="480" cy="128" r="6" fill="#22c55e" />
+  <text x="502" y="132" fill="#86efac" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">FRIDAY · AI Assistant</text>
+  <text x="655" y="132" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="9.5">Gemini 2.0</text>
+
+  <!-- Chat dialogue -->
+  <rect x="475" y="152" width="220" height="42" rx="8" fill="#143922" />
+  <text x="487" y="170" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10">User: "I need a bat for hard-hitting</text>
+  <text x="487" y="184" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10">on bouncy subcontinental pitches."</text>
+
+  <rect x="475" y="202" width="245" height="75" rx="8" fill="#1b492c" stroke="#22c55e" stroke-opacity="0.4" stroke-width="1" />
+  <text x="487" y="222" fill="#4ade80" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">FRIDAY:</text>
+  <text x="487" y="238" fill="#ecfdf5" font-family="system-ui, sans-serif" font-size="10">"Recommended: Grade 1 English</text>
+  <text x="487" y="252" fill="#ecfdf5" font-family="system-ui, sans-serif" font-size="10">Willow with high spine &amp; mid-to-high</text>
+  <text x="487" y="266" fill="#ecfdf5" font-family="system-ui, sans-serif" font-size="10">sweetspot for backfoot pull shots."</text>
+
+  <!-- Tech tags -->
+  <rect x="475" y="290" width="245" height="85" rx="8" fill="#091b10" />
+  <text x="487" y="310" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">TECH STACK ARCHITECTURE</text>
+  <text x="487" y="328" fill="#86efac" font-family="system-ui, sans-serif" font-size="10.5">React · Vite · Tailwind · Node.js</text>
+  <text x="487" y="344" fill="#86efac" font-family="system-ui, sans-serif" font-size="10.5">PostgreSQL · Prisma · JWT · Gemini</text>
+  <text x="487" y="360" fill="#86efac" font-family="system-ui, sans-serif" font-size="10.5">Razorpay Test Mode Payments</text>
+</svg>

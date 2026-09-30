@@ -1,19 +1,20 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Github, ExternalLink, Award } from 'lucide-react';
-import { projects, certifications } from '../data/content';
+import { Github, ExternalLink, Award, Eye, Sparkles } from 'lucide-react';
+import { projects } from '../data/content';
+import ProjectModal from './ProjectModal';
 
-// Tilt-on-hover wrapper using Framer Motion
+// 3D Tilt Card wrapper
 function TiltCard({ children, className = '' }) {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const xSpring = useSpring(x, { stiffness: 200, damping: 20 });
-  const ySpring = useSpring(y, { stiffness: 200, damping: 20 });
+  const xSpring = useSpring(x, { stiffness: 220, damping: 22 });
+  const ySpring = useSpring(y, { stiffness: 220, damping: 22 });
 
-  const rotateX = useTransform(ySpring, [-0.5, 0.5], ['10deg', '-10deg']);
-  const rotateY = useTransform(xSpring, [-0.5, 0.5], ['-10deg', '10deg']);
+  const rotateX = useTransform(ySpring, [-0.5, 0.5], ['7deg', '-7deg']);
+  const rotateY = useTransform(xSpring, [-0.5, 0.5], ['-7deg', '7deg']);
 
   const handleMouseMove = (e) => {
     if (!ref.current) return;
@@ -46,143 +47,149 @@ function TiltCard({ children, className = '' }) {
   );
 }
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, onSelect }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 35 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       style={{ perspective: 1000 }}
+      className="h-full"
     >
-      <TiltCard className="premium-card h-full flex flex-col group cursor-default">
-        {/* Project image with overlay */}
-        <div className="relative -m-6 mb-5 h-48 overflow-hidden rounded-t-2xl">
+      <TiltCard className="premium-card h-full flex flex-col group cursor-default border border-border-color hover:border-accent-glow/40 transition-all duration-300">
+        {/* Project Visual / Image Banner */}
+        <div className="relative -m-6 mb-5 h-52 sm:h-56 overflow-hidden rounded-t-2xl bg-dark-bg border-b border-border-color/60">
           <img
             src={project.image}
             alt={project.title}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-mid-bg via-mid-bg/40 to-transparent" />
+          
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-mid-bg via-mid-bg/30 to-transparent pointer-events-none" />
 
+          {/* Badge */}
           {project.badge && (
-            <div className="absolute top-3 right-3 px-3 py-1 rounded-full glass text-xs text-accent-glow font-medium flex items-center gap-1">
-              <Award className="w-3 h-3" />
+            <div className="absolute top-3 right-3 px-3 py-1 rounded-full glass-strong text-[11px] text-accent-glow font-mono font-semibold flex items-center gap-1.5 border border-accent-glow/30 shadow-md">
+              <Sparkles className="w-3 h-3 text-accent-glow" />
               {project.badge}
             </div>
           )}
+
+          {/* Category Tag */}
+          <div className="absolute bottom-3 left-4 px-2.5 py-0.5 rounded-md glass text-[10px] text-text-secondary font-mono tracking-wider uppercase">
+            {project.category}
+          </div>
         </div>
 
-        <h3 className="text-xl font-display font-bold text-text-primary mb-3">
+        {/* Project Title */}
+        <h3 className="text-xl font-display font-bold text-text-primary mb-2 group-hover:text-accent-glow transition-colors">
           {project.title}
         </h3>
 
-        <p className="text-text-secondary text-sm mb-5 flex-grow leading-relaxed">
+        {/* Description */}
+        <p className="text-text-secondary text-xs sm:text-sm mb-5 flex-grow leading-relaxed font-sans">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-5">
+        {/* Tech Stack Pills */}
+        <div className="flex flex-wrap gap-1.5 mb-6">
           {project.tech.map((t) => (
             <span
               key={t}
-              className="text-xs px-2.5 py-1 rounded-full bg-mid-bg border border-border-color text-accent-glow"
+              className="text-[11px] px-2.5 py-1 rounded-md bg-dark-bg/90 border border-border-color text-text-secondary font-mono hover:text-accent-glow hover:border-accent-glow/30 transition-colors"
             >
               {t}
             </span>
           ))}
         </div>
 
-        <div className="flex items-center gap-3 pt-3 border-t border-border-color">
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm text-text-secondary hover:text-accent-glow transition-colors"
-            >
-              <Github className="w-4 h-4" />
-              GitHub
-            </a>
-          )}
-          {project.live && (
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm text-text-secondary hover:text-accent-glow transition-colors"
-            >
-              <ExternalLink className="w-4 h-4" />
-              Live Demo
-            </a>
-          )}
-        </div>
-      </TiltCard>
-    </motion.div>
-  );
-}
+        {/* Action Buttons: GitHub, Live Demo, View Details */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-border-color/70 mt-auto">
+          <div className="flex items-center gap-3">
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-accent text-dark-bg hover:bg-accent-glow transition-all"
+                title="Open Live Application"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                Live Demo
+              </a>
+            )}
 
-function CertificationsCard() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: 0.4 }}
-      style={{ perspective: 1000 }}
-    >
-      <TiltCard className="premium-card h-full flex flex-col">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-lg bg-accent-glow/10">
-            <Award className="w-5 h-5 text-accent-glow" />
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent-glow transition-colors p-1"
+                title="View GitHub Repository"
+              >
+                <Github className="w-4 h-4" />
+                <span>Code</span>
+              </a>
+            )}
           </div>
-          <h3 className="text-xl font-display font-bold text-text-primary">
-            Certifications
-          </h3>
-        </div>
 
-        <ul className="space-y-3 text-sm text-text-secondary">
-          {certifications.map((cert) => (
-            <li key={cert.name} className="flex items-start gap-2">
-              <span className="text-accent-glow mt-0.5 flex-shrink-0">▸</span>
-              <div className="flex-1">
-                <div>
-                  {cert.name}
-                  {cert.status === 'Ongoing' && (
-                    <span className="ml-2 text-xs border border-accent-glow/40 text-accent-glow rounded px-1.5 py-0.5">
-                      Ongoing
-                    </span>
-                  )}
-                </div>
-                <div className="text-xs text-text-secondary/70">{cert.issuer}</div>
-              </div>
-            </li>
-          ))}
-        </ul>
+          <button
+            onClick={() => onSelect(project)}
+            className="inline-flex items-center gap-1.5 text-xs text-accent-glow hover:text-text-primary px-3 py-1.5 rounded-lg glass border border-accent-glow/30 hover:border-accent-glow transition-all"
+            title="View Full Architecture & System Details"
+          >
+            <Eye className="w-3.5 h-3.5" />
+            <span>View Details</span>
+          </button>
+        </div>
       </TiltCard>
     </motion.div>
   );
 }
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
-    <section id="projects" className="py-24">
-      <motion.h2
+    <section id="projects" className="py-24" aria-label="Featured Software Engineering Projects">
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-display font-bold text-center section-title-line mb-16"
+        transition={{ duration: 0.5 }}
+        className="text-center mb-16"
       >
-        Featured <span className="gradient-text">Projects</span>
-      </motion.h2>
+        <span className="text-xs uppercase tracking-widest text-accent-glow font-mono font-medium">
+          Engineering &amp; Implementations
+        </span>
+        <h2 className="text-4xl md:text-5xl font-display font-bold section-title-line mt-2">
+          Featured <span className="gradient-text">Projects</span>
+        </h2>
+        <p className="max-w-xl mx-auto text-xs sm:text-sm text-text-secondary mt-4">
+          Production full-stack platforms, cloud architectures, and machine learning systems built with modern engineering standards.
+        </p>
+      </motion.div>
 
+      {/* 2-Column Desktop Grid / 1-Column Mobile Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {projects.map((project, idx) => (
-          <ProjectCard key={project.title} project={project} index={idx} />
+          <ProjectCard
+            key={project.id}
+            project={project}
+            index={idx}
+            onSelect={setSelectedProject}
+          />
         ))}
-        <CertificationsCard />
       </div>
+
+      {/* Animated Project Details Modal */}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 }

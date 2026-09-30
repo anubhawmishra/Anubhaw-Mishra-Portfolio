@@ -1,79 +1,119 @@
 import { motion } from 'framer-motion';
-import { MapPin, GraduationCap, Calendar } from 'lucide-react';
+import {
+  MapPin,
+  GraduationCap,
+  Calendar,
+  ShieldCheck,
+  Sparkles,
+  Layers,
+  Code2,
+  Database,
+  BrainCircuit,
+} from 'lucide-react';
 import { personal, aboutText } from '../data/content';
 
-const iconMap = { MapPin, GraduationCap, Calendar };
+const iconMap = {
+  MapPin,
+  GraduationCap,
+  Calendar,
+  ShieldCheck,
+  Sparkles,
+};
 
 export default function About() {
   return (
-    <section id="about" className="py-24">
-      <motion.h2
+    <section id="about" className="py-24" aria-label="About Anubhaw Mishra">
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-display font-bold text-center section-title-line mb-16"
+        transition={{ duration: 0.5 }}
+        className="text-center mb-16"
       >
-        About <span className="gradient-text">Me</span>
-      </motion.h2>
+        <span className="text-xs uppercase tracking-widest text-accent-glow font-mono font-medium">
+          Background &amp; Profile
+        </span>
+        <h2 className="text-4xl md:text-5xl font-display font-bold section-title-line mt-2">
+          About <span className="gradient-text">Me</span>
+        </h2>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
-        {/* Profile image with glow + tilt */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-6xl mx-auto">
+        {/* Profile Image Column (5 cols) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="flex justify-center"
+          transition={{ duration: 0.6 }}
+          className="lg:col-span-5 flex flex-col items-center justify-center"
         >
-          <motion.div
-            whileHover={{ rotateY: 8, rotateX: -8, scale: 1.03 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-            className="relative"
-            style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
-          >
-            {/* Glow ring behind image */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent to-accent-glow blur-2xl opacity-40 scale-110 animate-glow-pulse" />
-            <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-accent-glow/30 glow-shadow">
+          <div className="relative group">
+            {/* Ambient Animated Glow Rings */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-accent to-accent-glow blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 scale-105" />
+
+            {/* Profile Picture Card */}
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl overflow-hidden border-2 border-accent-glow/40 glass p-2 glow-shadow">
               <img
                 src={personal.profileImage}
                 alt={personal.name}
                 onError={(e) => {
-                  // Fallback if /public/profile.jpg is missing
                   e.target.src = `https://ui-avatars.com/api/?name=Anubhaw+Mishra&size=400&background=0d1117&color=39d353&bold=true&font-size=0.4`;
                 }}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-          </motion.div>
+
+            {/* Status Pill */}
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full glass border border-accent-glow/40 text-xs font-mono text-accent-glow whitespace-nowrap shadow-lg flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-accent-glow animate-pulse" />
+              <span>Full-Stack &amp; AI Engineer</span>
+            </div>
+          </div>
         </motion.div>
 
-        {/* About text + badges */}
+        {/* Narrative & Info Cards Column (7 cols) */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="space-y-4 text-text-secondary"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="lg:col-span-7 space-y-6 text-text-secondary text-sm sm:text-base leading-relaxed"
         >
-          {aboutText.map((para, idx) => (
-            <p key={idx} className="leading-relaxed">
-              {para}
-            </p>
-          ))}
+          <div className="space-y-4">
+            {aboutText.map((paragraph, idx) => (
+              <p key={idx} className="leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
 
-          <div className="pt-4 flex flex-wrap gap-3">
-            {personal.badges.map((badge) => {
-              const Icon = iconMap[badge.icon];
+          {/* Animated Information Cards Grid */}
+          <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {personal.infoCards.map((card, idx) => {
+              const Icon = iconMap[card.icon] || Sparkles;
               return (
-                <motion.span
-                  key={badge.label}
-                  whileHover={{ scale: 1.05, borderColor: '#39d353' }}
-                  className="inline-flex items-center gap-2 text-xs border border-border-color rounded-full px-4 py-2"
+                <motion.div
+                  key={card.label}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + idx * 0.08, duration: 0.4 }}
+                  whileHover={{ y: -3, borderColor: 'rgba(57, 211, 83, 0.5)' }}
+                  className="p-3.5 rounded-xl glass border border-border-color transition-all"
                 >
-                  {Icon && <Icon className="w-3.5 h-3.5 text-accent-glow" />}
-                  {badge.label}
-                </motion.span>
+                  <div className="flex items-center gap-2 mb-1">
+                    <Icon className="w-3.5 h-3.5 text-accent-glow" />
+                    <span className="text-[11px] uppercase tracking-wider text-text-secondary font-mono">
+                      {card.label}
+                    </span>
+                  </div>
+                  <div className="text-xs sm:text-sm font-semibold text-text-primary">
+                    {card.value}
+                  </div>
+                  {card.sub && (
+                    <div className="text-[11px] text-accent-glow/80 mt-0.5">{card.sub}</div>
+                  )}
+                </motion.div>
               );
             })}
           </div>

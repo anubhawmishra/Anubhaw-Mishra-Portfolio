@@ -1,68 +1,113 @@
 import { motion } from 'framer-motion';
 import { skills } from '../data/content';
 
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaJava, FaPython, FaDatabase, FaGitAlt } from "react-icons/fa";
-import { SiTailwindcss, SiSpringboot, SiPostgresql, SiPostman } from "react-icons/si";
-import { TbApi, TbBrandVscode } from "react-icons/tb";
-import { BsRobot, BsBraces } from "react-icons/bs";
-import { MdDevices } from "react-icons/md";
-import { RiBrainLine } from "react-icons/ri";
-import { HiSparkles } from "react-icons/hi2";
-import { FiLayers, FiCode } from "react-icons/fi";
+import {
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaNodeJs,
+  FaJava,
+  FaPython,
+  FaDatabase,
+  FaGitAlt,
+  FaGithub,
+} from 'react-icons/fa';
+import {
+  SiTailwindcss,
+  SiPostgresql,
+  SiSqlite,
+  SiPrisma,
+  SiTensorflow,
+  SiKeras,
+  SiOpencv,
+  SiPostman,
+  SiExpress,
+  SiC,
+} from 'react-icons/si';
+import { TbApi } from 'react-icons/tb';
+import { BsCpu, BsBraces } from 'react-icons/bs';
+import { MdDevices } from 'react-icons/md';
+import { RiBrainLine } from 'react-icons/ri';
+import { HiSparkles } from 'react-icons/hi2';
+import { FiLayers, FiCode, FiRepeat, FiGitPullRequest, FiCheckCircle } from 'react-icons/fi';
 
-const iconColorMap = {
-  "JavaScript":        { icon: FaJs,           color: "#FACC15" },
-  "Python":            { icon: FaPython,        color: "#60A5FA" },
-  "Java":              { icon: FaJava,          color: "#EF4444" },
-  "SQL":               { icon: FaDatabase,      color: "#3B82F6" },
-  "React.js":          { icon: FaReact,         color: "#22D3EE" },
-  "HTML5":             { icon: FaHtml5,         color: "#F97316" },
-  "CSS3":              { icon: FaCss3Alt,       color: "#3B82F6" },
-  "Tailwind CSS":      { icon: SiTailwindcss,   color: "#22D3EE" },
-  "Responsive Design": { icon: MdDevices,       color: "#F472B6" },
-  "REST APIs":         { icon: TbApi,           color: "#4ADE80" },
-  "Node.js":           { icon: FaNodeJs,        color: "#22C55E" },
-  "Spring Boot":       { icon: SiSpringboot,    color: "#22C55E" },
-  "PostgreSQL":        { icon: SiPostgresql,    color: "#60A5FA" },
-  "Git & GitHub":      { icon: FaGitAlt,        color: "#F97316" },
-  "Postman":           { icon: SiPostman,       color: "#F97316" },
-  "VS Code":           { icon: TbBrandVscode,   color: "#3B82F6" },
-  "Data Structures":   { icon: BsBraces,        color: "#C084FC" },
-  "OOP":               { icon: FiLayers,        color: "#FACC15" },
-  "Agile / Scrum":     { icon: FiCode,          color: "#4ADE80" },
-  "GenAI":             { icon: HiSparkles,      color: "#39D353" },
-  "LLM Integration":   { icon: RiBrainLine,     color: "#39D353" },
-  "RAG Systems":       { icon: BsRobot,         color: "#39D353" },
+const iconMap = {
+  // Programming Languages
+  Python: { icon: FaPython, color: '#38BDF8' },
+  Java: { icon: FaJava, color: '#EF4444' },
+  JavaScript: { icon: FaJs, color: '#FACC15' },
+  SQL: { icon: FaDatabase, color: '#60A5FA' },
+  C: { icon: SiC, color: '#A855F7' },
+
+  // Frontend
+  'React.js': { icon: FaReact, color: '#22D3EE' },
+  HTML5: { icon: FaHtml5, color: '#F97316' },
+  CSS3: { icon: FaCss3Alt, color: '#38BDF8' },
+  'Tailwind CSS': { icon: SiTailwindcss, color: '#38BDF8' },
+  'Responsive Web Design': { icon: MdDevices, color: '#EC4899' },
+
+  // Backend & APIs
+  'Node.js': { icon: FaNodeJs, color: '#22C55E' },
+  'Express.js': { icon: SiExpress, color: '#E2E8F0' },
+  'REST APIs': { icon: TbApi, color: '#4ADE80' },
+
+  // Databases & ORM
+  PostgreSQL: { icon: SiPostgresql, color: '#60A5FA' },
+  SQLite: { icon: SiSqlite, color: '#38BDF8' },
+  'Prisma ORM': { icon: SiPrisma, color: '#34D399' },
+
+  // AI & ML
+  'Google Gemini': { icon: HiSparkles, color: '#39D353' },
+  'LLM API Integration': { icon: RiBrainLine, color: '#39D353' },
+  TensorFlow: { icon: SiTensorflow, color: '#FB923C' },
+  Keras: { icon: SiKeras, color: '#EF4444' },
+  'CNN (Deep Learning)': { icon: BsCpu, color: '#818CF8' },
+  OpenCV: { icon: SiOpencv, color: '#34D399' },
+
+  // Tools & Engineering
+  Git: { icon: FaGitAlt, color: '#F97316' },
+  GitHub: { icon: FaGithub, color: '#F1F5F9' },
+  Postman: { icon: SiPostman, color: '#FB923C' },
+  'CI/CD': { icon: FiRepeat, color: '#38BDF8' },
+  'Agile / Scrum': { icon: FiGitPullRequest, color: '#4ADE80' },
+  'Testing & Debugging': { icon: FiCheckCircle, color: '#A78BFA' },
+  'Data Structures & Algorithms': { icon: BsBraces, color: '#C084FC' },
+  'Object-Oriented Programming': { icon: FiLayers, color: '#FACC15' },
 };
 
-function SkillIcon({ name, size = 16 }) {
-  const entry = iconColorMap[name];
-  if (!entry) return <FiCode style={{ width: size, height: size }} />;
-  const IconComp = entry.icon;
-  return <IconComp style={{ width: size, height: size, color: entry.color, flexShrink: 0 }} />;
-}
+function SkillBadge({ skill, index, glow = false }) {
+  const meta = iconMap[skill.name] || { icon: FiCode, color: '#39d353' };
+  const IconComponent = meta.icon;
 
-function SkillCard({ skill, index, glow = false }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      whileHover={{ y: -6, rotateX: 5, rotateY: 5, scale: 1.05 }}
-      style={{ transformStyle: 'preserve-3d' }}
-      className={`relative group flex items-center gap-2.5 px-4 py-2.5 glass rounded-xl cursor-default transition-all duration-300 ${
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.35, delay: index * 0.04 }}
+      whileHover={{ y: -4, scale: 1.04 }}
+      className={`group flex items-center gap-2.5 px-3.5 py-2 glass rounded-xl cursor-default transition-all duration-200 border ${
         glow
-          ? 'border-accent-glow/60 hover:border-accent-glow hover:shadow-[0_0_20px_rgba(57,211,83,0.5)]'
-          : 'hover:border-accent-glow/50'
+          ? 'border-accent-glow/50 bg-accent/10 shadow-[0_0_15px_rgba(57,211,83,0.15)] hover:border-accent-glow hover:shadow-[0_0_20px_rgba(57,211,83,0.3)]'
+          : 'border-border-color hover:border-accent-glow/50 hover:bg-mid-bg'
       }`}
     >
-      <div className={`p-1.5 rounded-lg ${
-        glow ? 'bg-accent-glow/20' : 'bg-mid-bg group-hover:bg-accent-glow/10'
-      } transition-colors`}>
-        <SkillIcon name={skill.name} size={16} />
+      <div
+        className={`p-1.5 rounded-lg flex items-center justify-center transition-colors ${
+          glow ? 'bg-accent-glow/20' : 'bg-mid-bg group-hover:bg-dark-bg'
+        }`}
+      >
+        <IconComponent
+          style={{ color: meta.color }}
+          className="w-4 h-4 flex-shrink-0 transition-transform group-hover:scale-110"
+        />
       </div>
-      <span className={`text-sm ${glow ? 'text-accent-glow font-medium' : 'text-text-primary'}`}>
+      <span
+        className={`text-xs sm:text-sm font-medium ${
+          glow ? 'text-accent-glow font-semibold' : 'text-text-primary'
+        }`}
+      >
         {skill.name}
       </span>
     </motion.div>
@@ -71,32 +116,40 @@ function SkillCard({ skill, index, glow = false }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24">
-      <motion.h2
+    <section id="skills" className="py-24" aria-label="Technical Skills & Competencies">
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-display font-bold text-center section-title-line mb-16"
+        transition={{ duration: 0.5 }}
+        className="text-center mb-16"
       >
-        Core <span className="gradient-text">Technologies</span>
-      </motion.h2>
+        <span className="text-xs uppercase tracking-widest text-accent-glow font-mono font-medium">
+          Proficiency &amp; Tooling
+        </span>
+        <h2 className="text-4xl md:text-5xl font-display font-bold section-title-line mt-2">
+          Technical <span className="gradient-text">Skills</span>
+        </h2>
+      </motion.div>
 
-      <div className="max-w-5xl mx-auto space-y-10">
-        {skills.map((category, categoryIdx) => (
+      <div className="max-w-5xl mx-auto space-y-8">
+        {skills.map((category, catIdx) => (
           <motion.div
             key={category.category}
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: categoryIdx * 0.1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.45, delay: catIdx * 0.08 }}
+            className="p-5 sm:p-6 rounded-2xl glass-strong border border-border-color"
           >
-            <p className="text-sm text-text-secondary mb-4 uppercase tracking-widest font-medium">
+            <h3 className="text-xs uppercase tracking-widest text-accent-glow font-mono font-semibold mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-glow" />
               {category.category}
-            </p>
-            <div className="flex flex-wrap gap-3">
+            </h3>
+
+            <div className="flex flex-wrap gap-2.5">
               {category.items.map((skill, idx) => (
-                <SkillCard key={skill.name} skill={skill} index={idx} glow={skill.glow} />
+                <SkillBadge key={skill.name} skill={skill} index={idx} glow={skill.glow} />
               ))}
             </div>
           </motion.div>

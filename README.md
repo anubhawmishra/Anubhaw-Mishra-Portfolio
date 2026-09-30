@@ -1,152 +1,101 @@
-# Anubhaw Mishra - Portfolio (React + Vite)
+# Anubhaw Mishra — Software Engineer Portfolio 2.0
 
-A premium, animated, production-ready developer portfolio.
+A modern, recruiter-focused, production-grade Software Engineer & Full-Stack Developer portfolio featuring an actual functional AI assistant: **Anubhaw Assistant**.
 
-## Tech Stack
+Deployed on Vercel: [https://anubhaw-mishra-portfolio.vercel.app](https://anubhaw-mishra-portfolio.vercel.app)
 
-- **React 18** + **Vite** (fast dev + build)
-- **Tailwind CSS** (utility-first styling)
-- **Framer Motion** (page and element animations)
-- **React Three Fiber** + **three.js** (3D particle hero background)
-- **Lucide React** (icons)
+---
 
-## Folder Structure
+## ⚡ Tech Stack & Architecture
 
-```
-anubhaw-portfolio-react/
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-├── index.html
-├── public/
-│   ├── favicon.svg
-│   ├── profile.jpg          <-- ADD YOUR PROFILE PHOTO HERE
-│   └── Resume.pdf           <-- ADD YOUR RESUME PDF HERE
-└── src/
-    ├── main.jsx
-    ├── App.jsx
-    ├── index.css
-    ├── data/
-    │   └── content.js       <-- EDIT ALL TEXT/PROJECTS/SKILLS HERE
-    └── components/
-        ├── Navbar.jsx
-        ├── Hero.jsx
-        ├── ParticleField.jsx
-        ├── About.jsx
-        ├── Skills.jsx
-        ├── Experience.jsx
-        ├── Projects.jsx
-        ├── Contact.jsx
-        └── Footer.jsx
-```
+- **Frontend**: React 18 + Vite (ESM fast dev & production bundling)
+- **Styling**: Tailwind CSS + Custom Dark Theme Glassmorphism System
+- **Motion & Interactions**: Framer Motion (page transitions, 3D tilt cards, modals, reactive chat drawer)
+- **3D Graphics**: Three.js + React Three Fiber (`@react-three/fiber`, `@react-three/drei`)
+- **Icons**: React Icons (`react-icons`) + Lucide React (`lucide-react`)
+- **AI Assistant**: **Anubhaw Assistant** (Custom 3D-styled reactive animated avatar + Google Gemini serverless API endpoint `/api/assistant` + deterministic grounded fallback engine)
+- **Persistence**: Relational PostgreSQL + Prisma ORM (demonstrated in JobTrack & PITCH™)
+- **Security**: Server-side API key isolation (zero client key exposure), strict input sanitization, prompt injection defenses
 
-## Setup (one-time)
+---
+
+## 🚀 Key Sections
+
+1. **Hero**: Animated gradient typography, live rotating role indicator (`Software Engineer`, `Full Stack Developer`, `Frontend Developer`, `React Developer`, `AI/ML Enthusiast`), interactive mouse-tracking spotlight, React Three Fiber particle field, and instant recruiter CTAs.
+2. **About**: Verified academic background (B.E. Computer Science, SPPU, Feb 2021 – Feb 2026, CGPA 7.50/10, Honors in Cyber Security), full-stack focus, animated credential cards (Location, Degree, Graduation, Specialization, Focus).
+3. **Skills**: Categorized into 6 verified domains:
+   - Programming Languages (Python, Java, JavaScript, SQL, C)
+   - Frontend Development (React.js, HTML5, CSS3, Tailwind CSS, Responsive Web Design)
+   - Backend & APIs (Node.js, Express.js, REST APIs)
+   - Databases & ORM (PostgreSQL, SQLite, Prisma ORM)
+   - AI & Machine Learning (Google Gemini, LLM API Integration, TensorFlow, Keras, CNN, OpenCV)
+   - Tools & Engineering Practices (Git, GitHub, Postman, CI/CD, Agile/Scrum, Testing & Debugging, DSA, OOP)
+4. **Experience**: Oasis Infobyte (Web Development & Designing Intern, Jan 2023 – Feb 2023). Responsive UI engineering, REST API integration, Git-based collaborative reviews, cross-browser manual testing.
+5. **Featured Projects**:
+   - **AI Resume & Job Matcher — JARVIS**: AI-powered resume and job description analysis with ATS compatibility scoring and tailored interview prep. [Live Demo](https://frontend-eight-xi-61.vercel.app/) · [GitHub](https://github.com/anubhawmishra/AI-Resume-Job-Matcher)
+   - **JobTrack — Job Application Tracker**: Modern SaaS job application tracker with status pipeline, recruiter contacts, and JWT auth backed by PostgreSQL/Prisma. [Live Demo](https://job-application-tracker-eosin-gamma.vercel.app/) · [GitHub](https://github.com/anubhawmishra/Job-Application-Tracker)
+   - **PITCH™ — AI Cricket E-Commerce Platform**: Full-stack cricket e-commerce marketplace featuring FRIDAY (conversational shopping assistant powered by Google Gemini), custom bat builder, and Razorpay test mode payments. [GitHub](https://github.com/anubhawmishra/PITCH-Cricket-E-Commerce)
+   - **Deepfake Detection System**: CNN-based computer vision deep learning model with OpenCV preprocessing for detecting manipulated facial imagery (95%+ reported accuracy). [GitHub](https://github.com/anubhawmishra/Deepfake-Detection-App) · [IJSREM DOI](https://doi.org/10.55041/IJSREM34789)
+6. **Project Details Modal**: Interactive deep-dive modal displaying Problem, Solution, Architecture, Features, and Engineering Highlights.
+7. **Research & Publications**:
+   - *"Guarding Authenticity: A Deepfake Detection System"* — **IJSREM** (Vol. 8, Issue 5, May 2024, Impact Factor: 8.448, DOI: `10.55041/IJSREM34789`)
+   - *"Guarding Authenticity: Detection for Deepfake"* — **JETIR** (Vol. 11, Issue 5, May 2024, Impact Factor: 7.95)
+8. **Education & Certifications**: B.E. CS at Savitribai Phule Pune University, coursework breakdown, and professional credentials (Physics Wallah, IIT Bombay, Internshala, Goldman Sachs).
+9. **Contact**: Direct email, phone, location, LinkedIn, GitHub, LeetCode, and downloadable resume.
+
+---
+
+## 🤖 Anubhaw Assistant (Interactive AI Guide)
+
+The portfolio embeds an actual functioning AI assistant, **Anubhaw Assistant**:
+- **Custom 3D-Style Animated Avatar**: Includes natural eye-blinking cycles, subtle eye glancing, floating idle breathing, reactive speaking animation, and cybernetic glowing accents matching the portfolio theme.
+- **Initial Welcome Popup**: Welcomes visitors with quick action chips after a 1.8-second delay (session-aware via `sessionStorage`).
+- **Floating Launcher & Minimization**: Floating circular avatar launcher at bottom-right with pulse glow and tooltip. Supports minimize and close workflows without losing conversation state.
+- **Navbar AI Integration**: "Ask AI" button in the top navigation bar opens the assistant instantly.
+- **Dual-Mode Intelligence**:
+  - **Live AI Mode**: Powered by Google Gemini server-side through `/api/assistant`.
+  - **Deterministic Grounded Fallback**: Grounded on a structured knowledge base (`assistantKnowledge`) with zero hallucination if the server key is unset or offline.
+- **Security**: The Gemini API key is strictly server-side (`GEMINI_API_KEY`) and never bundled into frontend JavaScript (`VITE_*`).
+
+---
+
+## 💻 Local Setup & Development
 
 ```bash
-cd anubhaw-portfolio-react
+# 1. Install dependencies
 npm install
+
+# 2. (Optional) Configure Gemini API Key for live AI responses
+# Create a .env file (automatically git-ignored):
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# 3. Start local development server
 npm run dev
-```
 
-Open `http://localhost:5173` in your browser. The dev server hot-reloads on every save.
-
-## Where to add YOUR images and PDF
-
-Put these files inside the `public/` folder:
-
-| File           | Purpose                              | Used in            |
-|----------------|--------------------------------------|--------------------|
-| `profile.jpg`  | Your profile photo (square, 800x800) | About section      |
-| `Resume.pdf`   | Your resume PDF                      | Hero "Download" btn|
-
-If `profile.jpg` is missing, the About component automatically falls back to a UI Avatars-generated image.
-
-## Where to update content
-
-Open `src/data/content.js`. Everything is centralized:
-
-- `personal` — name, role, email, phone, social links, profile image path
-- `aboutText` — paragraphs in About section
-- `skills` — categorized skill list with icons
-- `experience` — internships
-- `projects` — project cards (title, description, tech, github, live, image)
-- `certifications` — certificate list
-- `publications` — research publications
-
-To change project images, replace the `image` URL in each project object. Use any direct image URL (Unsplash, your own CDN, etc.) or place an image in `public/projects/yourimage.jpg` and reference as `/projects/yourimage.jpg`.
-
-## Production Build
-
-```bash
+# 4. Build for production
 npm run build
-```
 
-Output goes to `dist/`. Test the production build locally with:
-
-```bash
+# 5. Preview production build
 npm run preview
 ```
 
-## Deploy to Vercel (recommended)
+---
 
-### Option 1: Connect GitHub repo
+## 🌐 Deploy to Vercel
 
-1. Push the project to GitHub.
-2. Go to [vercel.com/new](https://vercel.com/new)
-3. Import your GitHub repository.
-4. Vercel auto-detects Vite. Click **Deploy**.
-5. Done. Every commit to main auto-deploys.
+1. Push your repository to GitHub.
+2. In Vercel, import the repository.
+3. (Optional) In **Project Settings -> Environment Variables**, add:
+   - `GEMINI_API_KEY` = your Google Gemini API key
+4. Deploy. The `/api/assistant` serverless function will automatically handle AI requests with seamless fallback.
 
-### Option 2: Vercel CLI
+---
 
-```bash
-npm install -g vercel
-vercel
-```
+## 👤 Author
 
-Follow the prompts. First deploy creates the project; subsequent `vercel --prod` deploys to production.
-
-## Deploy to Netlify
-
-1. Run `npm run build`
-2. Drag the `dist` folder into [app.netlify.com/drop](https://app.netlify.com/drop)
-   OR connect your GitHub repo at netlify.com.
-
-Build command: `npm run build`
-Publish directory: `dist`
-
-## Customize Colors / Theme
-
-Edit `tailwind.config.js` under `theme.extend.colors`:
-
-```js
-'accent': '#238636',        // primary green
-'accent-glow': '#39d353',   // glow green
-'dark-bg': '#010409',       // page background
-'mid-bg': '#0d1117',        // card background
-```
-
-Change those 4 colors and the entire theme updates.
-
-## Performance Tips
-
-- Project images are loaded with `loading="lazy"`.
-- React Three Fiber canvas is wrapped in `Suspense` so it doesn't block first paint.
-- Tailwind's JIT means only used utilities ship in production CSS.
-- Lighthouse score on desktop should be 95+ out of the box.
-
-## Common Issues
-
-**Issue:** Profile image shows fallback initials instead of my photo.
-**Fix:** Save your photo as `public/profile.jpg`. Filename and path are case-sensitive.
-
-**Issue:** Resume button does nothing.
-**Fix:** Save your resume as `public/Resume.pdf` (capital R).
-
-**Issue:** Particles don't show / WebGL error.
-**Fix:** Some browsers block WebGL on incognito. Test in a regular window. Particles auto-fail-safe to no background.
-
-## Built by
-
-Anubhaw Mishra · [LinkedIn](https://linkedin.com/in/anubhaw-mishra002) · [GitHub](https://github.com/anubhawmishra) · [LeetCode](https://leetcode.com/u/Anubhaw_M)
+**Anubhaw Mishra**
+- **Location**: Pune, Maharashtra, India
+- **LinkedIn**: [linkedin.com/in/anubhaw-mishra002](https://linkedin.com/in/anubhaw-mishra002)
+- **GitHub**: [github.com/anubhawmishra](https://github.com/anubhawmishra)
+- **LeetCode**: [leetcode.com/u/Anubhaw_M](https://leetcode.com/u/Anubhaw_M)
+- **Email**: [anubhawmishra002@gmail.com](mailto:anubhawmishra002@gmail.com)

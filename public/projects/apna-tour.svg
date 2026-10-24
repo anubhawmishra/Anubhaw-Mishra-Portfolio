@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="atBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e100f" />
+      <stop offset="50%" stop-color="#141715" />
+      <stop offset="100%" stop-color="#0a0c0b" />
+    </linearGradient>
+    <linearGradient id="terracottaGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C85B35" />
+      <stop offset="100%" stop-color="#DA6A42" />
+    </linearGradient>
+    <filter id="atGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#atBg)" />
+  <circle cx="690" cy="85" r="160" fill="#C85B35" opacity="0.12" filter="url(#atGlow)" />
+  <circle cx="110" cy="370" r="130" fill="#D28A32" opacity="0.08" filter="url(#atGlow)" />
+
+  <!-- Grid lines -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90" />
+    <line x1="0" y1="180" x2="800" y2="180" />
+    <line x1="0" y1="270" x2="800" y2="270" />
+    <line x1="0" y1="360" x2="800" y2="360" />
+    <line x1="160" y1="0" x2="160" y2="450" />
+    <line x1="320" y1="0" x2="320" y2="450" />
+    <line x1="480" y1="0" x2="480" y2="450" />
+    <line x1="640" y1="0" x2="640" y2="450" />
+  </g>
+
+  <!-- Main App Frame -->
+  <rect x="40" y="35" width="720" height="380" rx="16" fill="#111312" stroke="#252a26" stroke-width="1.5" />
+
+  <!-- Window Header -->
+  <rect x="40" y="35" width="720" height="48" rx="16" fill="#171a18" />
+  <circle cx="68" cy="59" r="6" fill="#EF4444" opacity="0.8" />
+  <circle cx="88" cy="59" r="6" fill="#F59E0B" opacity="0.8" />
+  <circle cx="108" cy="59" r="6" fill="#10B981" opacity="0.8" />
+  <text x="140" y="64" fill="#F3EBDD" font-family="Georgia, serif" font-size="14" font-weight="bold" letter-spacing="0.5">APNA TOUR · Indian Travel Discovery Platform</text>
+  <rect x="540" y="47" width="200" height="24" rx="12" fill="#C85B35" fill-opacity="0.18" stroke="#C85B35" stroke-width="1" />
+  <text x="555" y="63" fill="#F3EBDD" font-family="system-ui, sans-serif" font-size="11" font-weight="600">🧭 Next.js Editorial Atlas</text>
+
+  <!-- Left Column: Regional Cartographic Explorer -->
+  <rect x="65" y="100" width="320" height="290" rx="12" fill="#161917" stroke="#2a302c" stroke-width="1" />
+  
+  <g transform="translate(85, 120)">
+    <text x="0" y="10" fill="#C85B35" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="1.5">SECTION 02 // CARTOGRAPHIC ATLAS</text>
+    <text x="0" y="30" fill="#F3EBDD" font-family="Georgia, serif" font-size="16" font-weight="normal">Explore India by Region</text>
+    
+    <!-- Region Filter Pills -->
+    <g transform="translate(0, 45)">
+      <rect x="0" y="0" width="75" height="22" rx="11" fill="#192D26" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.4" />
+      <text x="12" y="15" fill="#86efac" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">West India</text>
+
+      <rect x="82" y="0" width="70" height="22" rx="11" fill="#1c201d" stroke="#333" stroke-width="0.5" />
+      <text x="96" y="15" fill="#B9B4A8" font-family="system-ui, sans-serif" font-size="9.5">North</text>
+
+      <rect x="159" y="0" width="70" height="22" rx="11" fill="#1c201d" stroke="#333" stroke-width="0.5" />
+      <text x="174" y="15" fill="#B9B4A8" font-family="system-ui, sans-serif" font-size="9.5">South</text>
+    </g>
+
+    <!-- Destination Cards -->
+    <g transform="translate(0, 80)">
+      <rect x="0" y="0" width="280" height="72" rx="8" fill="#1c201d" stroke="#C85B35" stroke-width="1" />
+      <text x="12" y="22" fill="#F3EBDD" font-family="Georgia, serif" font-size="13" font-weight="bold">Pune · Maharashtra</text>
+      <rect x="210" y="10" width="60" height="18" rx="4" fill="#141715" />
+      <text x="216" y="22" fill="#D28A32" font-family="system-ui, sans-serif" font-size="9" font-weight="600">2-Day Pace</text>
+      <text x="12" y="42" fill="#B9B4A8" font-family="system-ui, sans-serif" font-size="10">Maratha Forts, Shaniwar Wada &amp; Old Peths</text>
+      <text x="12" y="58" fill="#85867E" font-family="monospace" font-size="8.5">Verified Entry Logistics · Mon-Sun</text>
+    </g>
+
+    <g transform="translate(0, 160)">
+      <rect x="0" y="0" width="280" height="72" rx="8" fill="#1c201d" stroke="#2e3530" stroke-width="1" />
+      <text x="12" y="22" fill="#F3EBDD" font-family="Georgia, serif" font-size="13" font-weight="bold">Jaipur · Rajasthan</text>
+      <rect x="210" y="10" width="60" height="18" rx="4" fill="#141715" />
+      <text x="216" y="22" fill="#D28A32" font-family="system-ui, sans-serif" font-size="9" font-weight="600">3-Day Pace</text>
+      <text x="12" y="42" fill="#B9B4A8" font-family="system-ui, sans-serif" font-size="10">Amber Fort, Hawa Mahal &amp; Spice Bazaars</text>
+      <text x="12" y="58" fill="#85867E" font-family="monospace" font-size="8.5">ASI Verified Timings · Heritage Walks</text>
+    </g>
+  </g>
+
+  <!-- Right Column: Editorial Hero Feature & Metrics -->
+  <rect x="405" y="100" width="330" height="290" rx="12" fill="#161917" stroke="#2a302c" stroke-width="1" />
+  
+  <g transform="translate(425, 120)">
+    <rect x="0" y="0" width="290" height="120" rx="8" fill="#1c201d" stroke="#2e3530" stroke-width="1" />
+    <path d="M0 0 L290 0 L290 40 L0 40 Z" fill="#202421" />
+    <text x="12" y="25" fill="#D28A32" font-family="monospace" font-size="9" font-weight="600">INDEPENDENT TRAVEL DISCOVERY</text>
+    <text x="12" y="65" fill="#F3EBDD" font-family="Georgia, serif" font-size="15" font-weight="normal">"India, beyond the obvious."</text>
+    <text x="12" y="86" fill="#B9B4A8" font-family="system-ui, sans-serif" font-size="10" line-height="1.4">Human-written research, regional culinary</text>
+    <text x="12" y="101" fill="#B9B4A8" font-family="system-ui, sans-serif" font-size="10">trails, and calm heritage journeys.</text>
+
+    <!-- Factual Metrics Strip -->
+    <g transform="translate(0, 135)">
+      <rect x="0" y="0" width="90" height="55" rx="8" fill="#141715" stroke="#2e3530" stroke-width="1" />
+      <text x="14" y="25" fill="#C85B35" font-family="system-ui, sans-serif" font-size="17" font-weight="bold">28</text>
+      <text x="14" y="42" fill="#85867E" font-family="monospace" font-size="9">STATES</text>
+
+      <rect x="100" y="0" width="90" height="55" rx="8" fill="#141715" stroke="#2e3530" stroke-width="1" />
+      <text x="14" y="25" fill="#D28A32" font-family="system-ui, sans-serif" font-size="17" font-weight="bold">21+</text>
+      <text x="14" y="42" fill="#85867E" font-family="monospace" font-size="9">PLACES</text>
+
+      <rect x="200" y="0" width="90" height="55" rx="8" fill="#141715" stroke="#2e3530" stroke-width="1" />
+      <text x="14" y="25" fill="#86efac" font-family="system-ui, sans-serif" font-size="17" font-weight="bold">100%</text>
+      <text x="14" y="42" fill="#85867E" font-family="monospace" font-size="9">VERIFIED</text>
+    </g>
+
+    <!-- CTA Bar -->
+    <g transform="translate(0, 205)">
+      <rect x="0" y="0" width="290" height="35" rx="8" fill="#C85B35" />
+      <text x="75" y="22" fill="#FAF5EB" font-family="system-ui, sans-serif" font-size="11.5" font-weight="bold" letter-spacing="0.5">Explore State Portals →</text>
+    </g>
+  </g>
+</svg>

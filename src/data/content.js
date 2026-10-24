@@ -9,10 +9,10 @@ export const personal = {
     'Software Engineer',
     'Full Stack Developer',
     'Frontend Developer',
-    'React Developer',
-    'AI/ML Enthusiast',
+    'React / Next.js Developer',
+    'AI/ML Systems Engineer',
   ],
-  tagline: 'React.js · Node.js · PostgreSQL · Python · Java · REST APIs · AI/ML',
+  tagline: 'Next.js · React.js · Node.js · TypeScript · PostgreSQL · Python · Java · REST APIs · AI/ML',
   about:
     '2026 Computer Science graduate (Honors in Cyber Security) building high-performance full-stack web applications, scalable REST APIs, and AI/LLM integrations.',
   location: 'Pune, Maharashtra, India',
@@ -43,14 +43,14 @@ export const personal = {
     { label: 'Degree', value: 'B.E. Computer Science', sub: 'SPPU', icon: 'GraduationCap' },
     { label: 'Graduation', value: 'Feb 2026', sub: 'CGPA 7.50 / 10', icon: 'Calendar' },
     { label: 'Specialization', value: 'Honors in Cyber Security', sub: 'Research in AI/CNN', icon: 'ShieldCheck' },
-    { label: 'Primary Focus', value: 'Full-Stack & AI Systems', sub: 'React · Node · Postgres · Python', icon: 'Sparkles' },
+    { label: 'Primary Focus', value: 'Full-Stack & AI Systems', sub: 'Next.js · React · Node · Postgres', icon: 'Sparkles' },
   ],
 };
 
 export const aboutText = [
   "I am a Computer Science graduate (Honors in Cyber Security) from Savitribai Phule Pune University (Feb 2021 – Feb 2026, CGPA 7.50/10) focused on Software Engineering and Full-Stack Development.",
-  "My core engineering stack spans React.js, Node.js, Express.js, PostgreSQL, and Prisma ORM, complemented by systems and data engineering in Python, Java, SQL, and C. I specialize in building responsive, modern user interfaces and pairing them with robust REST APIs and database architectures.",
-  "Beyond conventional web development, I build production-grade AI-powered applications — including full-stack LLM integrations (like JARVIS and PITCH™) and peer-reviewed Deepfake Detection systems utilizing Convolutional Neural Networks (CNNs) and OpenCV, with research published in JETIR and IJSREM.",
+  "My core engineering stack spans Next.js, React.js, TypeScript, Node.js, Express.js, PostgreSQL, and Prisma ORM, complemented by systems and data engineering in Python, Java, SQL, and C. I specialize in building responsive, modern user interfaces paired with robust REST APIs, atomic database workflows, and cloud-ready infrastructure.",
+  "Beyond conventional web development, I engineer production-grade AI systems and full-stack platforms — including NEXDESK (IT service desk & incident management with 4-tier RBAC and deterministic SLA engine), JARVIS (AI resume & job matcher with live ATS compatibility scoring), PITCH™ (full-stack cricket e-commerce with FRIDAY Gemini assistant and Razorpay test payments), APNA TOUR (Next.js editorial travel discovery platform), and a peer-reviewed Deepfake Detection system utilizing Convolutional Neural Networks (CNNs) and OpenCV, with research published in JETIR and IJSREM.",
   "I am actively targeting Software Engineer, SDE, Full Stack Developer, and Frontend Developer roles where I can architect reliable software, write clean testable code, and deliver measurable product value."
 ];
 
@@ -58,6 +58,7 @@ export const skills = [
   {
     category: 'Programming Languages',
     items: [
+      { name: 'TypeScript', icon: 'SiTypescript', color: '#3178C6' },
       { name: 'Python', icon: 'FaPython', color: '#38BDF8' },
       { name: 'Java', icon: 'FaJava', color: '#EF4444' },
       { name: 'JavaScript', icon: 'FaJs', color: '#FACC15' },
@@ -68,6 +69,7 @@ export const skills = [
   {
     category: 'Frontend Development',
     items: [
+      { name: 'Next.js', icon: 'SiNextdotjs', color: '#FFFFFF' },
       { name: 'React.js', icon: 'FaReact', color: '#22D3EE' },
       { name: 'HTML5', icon: 'FaHtml5', color: '#F97316' },
       { name: 'CSS3', icon: 'FaCss3Alt', color: '#38BDF8' },
@@ -108,6 +110,7 @@ export const skills = [
       { name: 'Git', icon: 'FaGitAlt', color: '#F97316' },
       { name: 'GitHub', icon: 'FaGithub', color: '#F1F5F9' },
       { name: 'Postman', icon: 'SiPostman', color: '#FB923C' },
+      { name: 'Vitest', icon: 'SiVitest', color: '#6E9F18' },
       { name: 'CI/CD', icon: 'FiRepeat', color: '#38BDF8' },
       { name: 'Agile / Scrum', icon: 'FiWorkflow', color: '#4ADE80' },
       { name: 'Testing & Debugging', icon: 'FiCheckCircle', color: '#A78BFA' },
@@ -135,6 +138,46 @@ export const experience = [
 ];
 
 export const projects = [
+  {
+    id: 'nexdesk',
+    title: 'NEXDESK — Enterprise IT Service Desk & Incident Management System',
+    shortTitle: 'NEXDESK',
+    category: 'Enterprise SaaS / Cloud',
+    tagline: 'Enterprise IT service desk & asset management with 4-tier RBAC, deterministic SLA engine & PostgreSQL',
+    description:
+      'An enterprise-grade internal IT Service Desk and Hardware Asset Management system built with Next.js 15, TypeScript, PostgreSQL (Neon), and Prisma ORM. Features 4-tier role-based access control, state-machine ticket lifecycles, real-time SLA countdown calculations, immutable security audit logging, and automated test suites.',
+    longDescription:
+      'NEXDESK models modern IT operations (ITIL/ITSM best practices) for enterprise internal support. Engineered with Next.js 15 App Router and a 21-entity relational PostgreSQL database managed via Prisma ORM, it features strict server-side RBAC across four tiers (Employee, Support Agent, IT Manager, Administrator), a linear audited ticket state machine with a 7-day employee reopen window, priority-based SLA calculation (P1 Critical through P4 Low), hardware fleet inventory custody tracking, confidential internal IT collaboration notes, and an immutable security audit ledger.',
+    problem:
+      'Organizations struggle with fragmented support channels, untracked hardware assets, missed SLA deadlines, and lack of horizontal data isolation between general employees and confidential IT notes.',
+    solution:
+      'Architected a unified enterprise ITSM platform enforcing strict server-side RBAC, automated deterministic SLA timers, atomic database transactions for ticket status transitions, serialized asset tracking, and comprehensive audit trails.',
+    architecture:
+      'Next.js 15 App Router with TypeScript and Server Route Handlers. Stateless JWT sessions stored in HttpOnly, SameSite=Lax cookies via jose, and bcryptjs hashing. Relational persistence backed by Neon PostgreSQL using Prisma ORM with atomic transactions, sliding-window rate limiting, and Zod schema validation. Tested with Vitest and Playwright.',
+    features: [
+      '4-Tier Server-Side RBAC (Employee, Support Agent, IT Manager, Administrator)',
+      'Incident & Service Request State Machine with 7-Day Reopen Policy',
+      'Deterministic SLA Countdown & Warning Breach Engine (P1–P4)',
+      'Serialized Hardware Fleet & Asset Custody Lifecycle Tracking',
+      'Confidential Internal Technical Notes vs. Public Employee Replies',
+      'Immutable Security Audit Event Ledger & Activity Logging',
+      'Self-Service Knowledge Base with Step-by-Step SOP Checklists',
+      'RFC 4180 CSV Export with Formula Injection Neutralization',
+    ],
+    tech: ['Next.js 15', 'TypeScript', 'PostgreSQL', 'Prisma ORM', 'Tailwind CSS', 'JWT (jose)', 'Vitest', 'Playwright', 'Zod'],
+    engineeringHighlights: [
+      'Engineered deterministic SLA engine calculating response and resolution deadlines per priority tier with visual countdowns',
+      'Implemented atomic multi-entity Prisma transactions ensuring status transitions and audit logs remain synchronized',
+      'Neutralized CSV formula injection risks (=, +, -, @) during asset data exports adhering to RFC 4180 standards',
+      'Verified horizontal isolation and role boundaries with automated Vitest unit tests and Playwright E2E suites',
+    ],
+    github: 'https://github.com/anubhawmishra/nexdesk-enterprise-itsm',
+    live: 'https://nexdesk-enterprise-itsm.vercel.app',
+    image: '/projects/nexdesk.svg',
+    accent: '#3B82F6',
+    color: 'blue',
+    badge: 'Enterprise SaaS',
+  },
   {
     id: 'jarvis',
     title: 'AI Resume & Job Matcher — JARVIS',
@@ -173,11 +216,60 @@ export const projects = [
     badge: 'Live Demo',
   },
   {
+    id: 'pitch',
+    title: 'PITCH™ — Full-Stack AI Cricket E-Commerce Platform',
+    shortTitle: 'PITCH™',
+    category: 'Full-Stack / AI E-Commerce',
+    tagline: 'Cricket equipment marketplace with FRIDAY AI assistant (Google Gemini) & Razorpay test checkout',
+    description:
+      'A full-stack cricket e-commerce marketplace featuring product discovery, search, filtering, custom bat builder, cart, wishlist, checkout with Razorpay Test Mode payments, and "FRIDAY" — a Google Gemini conversational shopping assistant.',
+    longDescription:
+      'PITCH™ delivers a tailored e-commerce experience built specifically for cricket athletes and fans. It combines complete retail workflows (catalog browsing, sorting, shopping cart, wishlist, orders, Razorpay test sandbox payments) with interactive product configuration (custom bat builder) and FRIDAY, an embedded Google Gemini AI assistant that helps users select equipment based on playing style and specifications.',
+    problem:
+      'Standard generic e-commerce stores fail to provide domain-specific equipment guidance (such as bat willow grade, weight distribution, and playing condition advice) needed by serious cricketers.',
+    solution:
+      'Created a specialized cricket marketplace with a custom bat configuration tool and FRIDAY, a domain-trained AI shopping assistant that recommends gear based on user preferences and budget.',
+    architecture:
+      'React (Vite) frontend with Tailwind CSS and interactive animations. Node.js and Express backend with PostgreSQL & Prisma ORM persistence, JWT/bcrypt user security, Google Gemini API for the FRIDAY assistant, and Razorpay test payment integration.',
+    features: [
+      'FRIDAY AI Shopping Assistant (powered by Google Gemini)',
+      'Custom Bat Builder & Interactive Equipment Configurator',
+      'Complete E-Commerce Flow: Product Search, Filter, Sort, Cart, Wishlist, Checkout',
+      'Razorpay Test Mode Payment Gateway Integration (Sandbox)',
+      'Secure Authentication with JWT and bcrypt Password Hashing',
+      'PostgreSQL Relational Storage managed via Prisma ORM',
+    ],
+    tech: [
+      'React.js',
+      'Vite',
+      'Tailwind CSS',
+      'Node.js',
+      'Express.js',
+      'PostgreSQL',
+      'Prisma ORM',
+      'Google Gemini',
+      'Razorpay (Test)',
+      'JWT',
+    ],
+    engineeringHighlights: [
+      'Implemented FRIDAY conversational assistant integrating Google Gemini with cricket domain context',
+      'Engineered interactive custom bat configurator with dynamic price and spec calculation',
+      'Integrated Razorpay test payment flow with backend signature verification and order state handling',
+    ],
+    github: 'https://github.com/anubhawmishra/PITCH-Cricket-E-Commerce',
+    live: 'https://pitch-cricket-store.vercel.app/',
+    isTestModePayment: true,
+    image: '/projects/pitch.svg',
+    accent: '#22C55E',
+    color: 'green',
+    badge: 'Live Demo (Test Mode)',
+  },
+  {
     id: 'jobtrack',
     title: 'JobTrack — Job Application Tracker',
     shortTitle: 'JobTrack',
     category: 'Full-Stack Web Application',
-    tagline: 'Modern job application tracker with status workflows, search, and JWT auth',
+    tagline: 'Modern SaaS job application tracker with status workflows, search, and JWT auth backed by PostgreSQL',
     description:
       'A full-stack web application designed for developers and job seekers to organize, track, and manage their job applications. Features status pipeline management, recruiter notes, search, filtering, and secure JWT authentication.',
     longDescription:
@@ -210,61 +302,50 @@ export const projects = [
     badge: 'Live Demo',
   },
   {
-    id: 'pitch',
-    title: 'PITCH™ — Full-Stack AI Cricket E-Commerce Platform',
-    shortTitle: 'PITCH™',
-    category: 'Full-Stack / AI E-Commerce',
-    tagline: 'Full-stack cricket e-commerce with FRIDAY AI shopping assistant & Razorpay test mode',
+    id: 'apna-tour',
+    title: 'APNA TOUR — Indian Travel Discovery & Editorial Platform',
+    shortTitle: 'APNA TOUR',
+    category: 'Full-Stack / Web Platform',
+    tagline: 'Human-first Indian travel discovery platform with editorial guides, monument logistics, and Dark Editorial UI',
     description:
-      'A full-stack AI-powered cricket e-commerce platform featuring dynamic product catalogs, search, filtering, wishlist, shopping cart, checkout, custom bat builder, Razorpay Test Mode integration, and "FRIDAY" — a Google Gemini conversational shopping assistant.',
+      'An independent, editorial travel discovery platform for the Indian subcontinent built with Next.js App Router, TypeScript, and Tailwind CSS. Features verified monument opening hours, regional culinary trails, cartographic exploration across Indian states, and human-written field dispatches.',
     longDescription:
-      'PITCH™ delivers a tailored e-commerce experience built specifically for cricket athletes and fans. It combines complete retail workflows (catalog browsing, sorting, shopping cart, wishlist, orders, Razorpay test payments) with interactive product configuration (custom bat builder) and FRIDAY, an embedded Google Gemini AI assistant that helps users select equipment based on playing style and specifications.',
+      'APNA TOUR is an independently architected, human-first travel discovery platform focused on authentic cultural exploration. Departing from recycled AI-generated travel fluff, the platform delivers meticulously verified logistics (ASI monument hours, entry fee guidelines, seasonal pacing advice) across 28 states and territories. Engineered with Next.js App Router and a bespoke Dark Editorial Design System, it features rich cartographic filtering by region, verified heritage itineraries, and a Prisma-ready relational data layer.',
     problem:
-      'Standard generic e-commerce stores fail to provide domain-specific equipment guidance (such as bat willow grade, weight distribution, and playing condition advice) needed by serious cricketers.',
+      'Travelers across India face generic top-ten lists, hallucinated AI recommendations, outdated monument opening timings, and commercialized sponsored rankings rather than authentic cultural guidance.',
     solution:
-      'Created a specialized cricket marketplace with a custom bat configuration tool and FRIDAY, a domain-trained AI shopping assistant that recommends gear based on user preferences and budget.',
+      'Built a human-curated editorial discovery atlas with verified spatial metadata, regional food trail documentation, cultural walk breakdowns, and real-time query routing.',
     architecture:
-      'React (Vite) frontend with Tailwind CSS and interactive animations. Node.js and Express backend with PostgreSQL & Prisma ORM persistence, JWT/bcrypt user security, Google Gemini API for the FRIDAY assistant, and Razorpay test payment integration.',
+      'Next.js App Router with TypeScript and React Server Components for optimal SEO and instant page delivery. Styled with bespoke Dark Editorial design tokens in Tailwind CSS, Lucide React icons, and Zod input validation. Schema-ready Prisma ORM integration with structured JSON-LD tourist metadata.',
     features: [
-      'FRIDAY AI Shopping Assistant (powered by Google Gemini)',
-      'Custom Bat Builder & Interactive Equipment Configurator',
-      'Complete E-Commerce Flow: Product Search, Filter, Sort, Cart, Wishlist, Checkout',
-      'Razorpay Test Mode Payment Gateway Integration',
-      'Secure Authentication with JWT and bcrypt Password Hashing',
-      'PostgreSQL Relational Storage managed via Prisma ORM',
+      'Regional Cartographic Atlas (North, South, West, Central, Northeast)',
+      'Verified Heritage Monument & Fortress Logistics (ASI timings, ticket guidance)',
+      'Storied Regional Food Trails (Puneri Misal, South Bombay Cafes, Jaipur Bazaars)',
+      'Curated Multi-Day Pacing Guides & Human-Written Itineraries',
+      'Dark Editorial Design System with Newsreader serif & Plus Jakarta Sans typography',
+      'Dynamic Schema.org JSON-LD Structured Data for Tourist Destinations & Attractions',
     ],
-    tech: [
-      'React.js',
-      'Vite',
-      'Tailwind CSS',
-      'Node.js',
-      'Express.js',
-      'PostgreSQL',
-      'Prisma ORM',
-      'Google Gemini',
-      'Razorpay (Test)',
-      'JWT',
-    ],
+    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma ORM', 'Zod', 'Lucide React'],
     engineeringHighlights: [
-      'Implemented FRIDAY conversational assistant integrating Google Gemini with cricket domain context',
-      'Engineered interactive custom bat configurator with dynamic price and spec calculation',
-      'Integrated Razorpay test payment flow with backend signature verification and order state handling',
+      'Designed bespoke Dark Editorial responsive design system with custom typography tokens and accessible contrast',
+      'Optimized server rendering and static generation for fast loading and sub-second Largest Contentful Paint',
+      'Structured semantic JSON-LD metadata for search engine indexing across tourist attractions and itineraries',
     ],
-    github: 'https://github.com/anubhawmishra/PITCH-Cricket-E-Commerce',
-    live: null,
-    image: '/projects/pitch.svg',
-    accent: '#22C55E',
-    color: 'green',
-    badge: 'AI-Powered',
+    github: 'https://github.com/anubhawmishra/apna-tour',
+    live: 'https://apna-tour-ruddy.vercel.app/',
+    image: '/projects/apna-tour.svg',
+    accent: '#C85B35',
+    color: 'orange',
+    badge: 'Live Platform',
   },
   {
     id: 'deepfake',
     title: 'Deepfake Detection System',
     shortTitle: 'Deepfake Detection',
     category: 'Computer Vision / Deep Learning',
-    tagline: 'CNN-based visual media classification with OpenCV preprocessing (95%+ accuracy)',
+    tagline: 'CNN-based facial media classification with OpenCV preprocessing (Reported >95% accuracy)',
     description:
-      'A computer vision pipeline utilizing Convolutional Neural Networks (CNNs) and OpenCV to classify real vs. manipulated facial imagery. Achieved 95%+ classification accuracy and published in two peer-reviewed journals (JETIR and IJSREM).',
+      'A desktop forensic analysis system and research framework utilizing Convolutional Neural Networks (CNNs) and OpenCV to classify real vs. manipulated facial imagery. Achieved >95% reported experimental accuracy and published in two peer-reviewed academic journals (JETIR and IJSREM).',
     longDescription:
       'With the exponential rise of manipulated synthetic media, this project engineered a deep learning pipeline to detect subtle facial artifacts and blending inconsistencies introduced by generative deepfake algorithms. Using OpenCV for face detection, alignment, and frame normalization, followed by a multi-layer CNN trained via TensorFlow/Keras, the system detects falsified media with high precision.',
     problem:
@@ -277,18 +358,20 @@ export const projects = [
       'Frame-by-Frame Image and Video Preprocessing with OpenCV',
       'Custom Convolutional Neural Network (CNN) Architecture',
       'Evaluation via Accuracy, Precision, Recall, and F1-Score',
-      'Reported 95%+ Classification Accuracy on Evaluated Datasets',
+      'Reported >95% Experimental Classification Accuracy on Evaluated Datasets',
       'SQLite Integration for Detection Audit Logging',
       'Two Peer-Reviewed Academic Research Publications',
     ],
     tech: ['Python', 'TensorFlow', 'Keras', 'CNN', 'OpenCV', 'SQLite', 'Tkinter'],
     engineeringHighlights: [
-      'Trained deep CNN model achieving 95%+ reported accuracy across evaluation splits',
+      'Trained deep CNN model achieving >95% reported accuracy across evaluated test splits',
       'Built automated OpenCV preprocessing pipeline for face cropping and dimension standardization',
       'Co-authored 2 research papers published in JETIR and IJSREM detailing the methodology',
     ],
     github: 'https://github.com/anubhawmishra/Deepfake-Detection-App',
     live: null,
+    isDesktopApp: true,
+    doi: 'https://doi.org/10.55041/IJSREM34789',
     image: '/projects/deepfake.svg',
     accent: '#06B6D4',
     color: 'cyan',
@@ -473,8 +556,8 @@ export const assistantKnowledge = {
     ],
   },
   skills: {
-    languages: ['Python', 'Java', 'JavaScript', 'SQL', 'C'],
-    frontend: ['React.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Responsive Web Design'],
+    languages: ['TypeScript', 'Python', 'Java', 'JavaScript', 'SQL', 'C'],
+    frontend: ['Next.js', 'React.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Responsive Web Design'],
     backend: ['Node.js', 'Express.js', 'REST APIs'],
     databases: ['PostgreSQL', 'SQLite', 'Prisma ORM'],
     ai_ml: ['Google Gemini', 'LLM API Integration', 'TensorFlow', 'Keras', 'CNN', 'OpenCV'],
@@ -482,6 +565,9 @@ export const assistantKnowledge = {
       'Git',
       'GitHub',
       'Postman',
+      'Vitest',
+      'Playwright',
+      'Zod',
       'CI/CD',
       'Agile / Scrum',
       'Testing & Debugging',
@@ -506,6 +592,17 @@ export const assistantKnowledge = {
   ],
   projects: [
     {
+      name: 'NEXDESK — Enterprise IT Service Desk & Incident Management',
+      id: 'nexdesk',
+      description:
+        'Enterprise-grade IT Service Desk & Asset Management system built with Next.js 15, TypeScript, PostgreSQL (Neon), and Prisma ORM. Features 4-tier server-side RBAC, linear ticket state machines with 7-day employee reopen window, deterministic SLA countdown calculation (P1–P4), serialized hardware fleet custody tracking, internal IT collaboration notes, and an immutable security audit ledger.',
+      stack: ['Next.js 15', 'TypeScript', 'PostgreSQL', 'Prisma ORM', 'Tailwind CSS', 'JWT (jose)', 'Vitest', 'Playwright', 'Zod'],
+      liveUrl: 'https://nexdesk-enterprise-itsm.vercel.app',
+      githubUrl: 'https://github.com/anubhawmishra/nexdesk-enterprise-itsm',
+      highlights:
+        '4-tier RBAC enforcement, deterministic SLA breach engine, atomic database transactions, verified live login on Neon PostgreSQL.',
+    },
+    {
       name: 'JARVIS — AI Resume & Job Matcher',
       id: 'jarvis',
       description:
@@ -514,6 +611,28 @@ export const assistantKnowledge = {
       liveUrl: 'https://frontend-eight-xi-61.vercel.app/',
       githubUrl: 'https://github.com/anubhawmishra/AI-Resume-Job-Matcher',
       highlights: 'Semantic skill matching, ATS compatibility score, dynamic interview questions, LLM prompt engineering.',
+    },
+    {
+      name: 'PITCH™ — Full-Stack AI Cricket E-Commerce Platform',
+      id: 'pitch',
+      description:
+        'Full-stack cricket e-commerce marketplace with product catalogs, search, filtering, custom bat builder, cart, wishlist, checkout, Razorpay Test Mode payments (sandbox), and "FRIDAY" — a Google Gemini conversational shopping assistant.',
+      stack: [
+        'React.js',
+        'Vite',
+        'Tailwind CSS',
+        'Node.js',
+        'Express.js',
+        'PostgreSQL',
+        'Prisma ORM',
+        'Google Gemini',
+        'Razorpay Test Mode',
+        'JWT',
+      ],
+      liveUrl: 'https://pitch-cricket-store.vercel.app/',
+      githubUrl: 'https://github.com/anubhawmishra/PITCH-Cricket-E-Commerce',
+      highlights:
+        'FRIDAY AI shopping assistant (Google Gemini), custom bat builder, Razorpay test mode payment flow, PostgreSQL with Prisma.',
     },
     {
       name: 'JobTrack — Job Application Tracker',
@@ -526,38 +645,28 @@ export const assistantKnowledge = {
       highlights: 'Application status pipeline, search and filtering, JWT auth, relational schema with Prisma ORM.',
     },
     {
-      name: 'PITCH™ — Full-Stack AI Cricket E-Commerce Platform',
-      id: 'pitch',
+      name: 'APNA TOUR — Indian Travel Discovery Platform',
+      id: 'apna-tour',
       description:
-        'Full-stack cricket e-commerce platform with product catalogs, search, filtering, custom bat builder, cart, wishlist, checkout, Razorpay Test Mode integration, and "FRIDAY" — a Google Gemini conversational shopping assistant.',
-      stack: [
-        'React.js',
-        'Vite',
-        'Tailwind CSS',
-        'Node.js',
-        'Express.js',
-        'PostgreSQL',
-        'Prisma ORM',
-        'Google Gemini',
-        'Razorpay Test Mode',
-        'JWT',
-        'bcrypt',
-      ],
-      liveUrl: null,
-      githubUrl: 'https://github.com/anubhawmishra/PITCH-Cricket-E-Commerce',
+        'Independent, human-first editorial travel discovery platform for the Indian subcontinent built with Next.js App Router, TypeScript, and Tailwind CSS. Features verified monument opening hours, regional food trails, cartographic exploration across Indian states, and human-written field dispatches.',
+      stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma ORM', 'Zod', 'Lucide React'],
+      liveUrl: 'https://apna-tour-ruddy.vercel.app/',
+      githubUrl: 'https://github.com/anubhawmishra/apna-tour',
       highlights:
-        'FRIDAY AI shopping assistant (Google Gemini), custom bat builder, Razorpay test mode payment flow, PostgreSQL with Prisma.',
+        'Dark Editorial Design System, verified monument logistics across 28 states, regional food trails, Next.js App Router SSR/SSG.',
     },
     {
       name: 'Deepfake Detection System',
       id: 'deepfake',
       description:
-        'CNN-based computer vision deep learning system that classifies real vs. fake images and video frames. Uses OpenCV preprocessing and custom CNN architecture with 95%+ reported accuracy. Published in JETIR and IJSREM.',
+        'Desktop computer vision forensic system and research project that classifies real vs. manipulated facial imagery. Uses OpenCV preprocessing and custom CNN architecture with >95% reported experimental accuracy. Published in JETIR and IJSREM.',
       stack: ['Python', 'TensorFlow', 'Keras', 'CNN', 'OpenCV', 'SQLite', 'Tkinter'],
       liveUrl: null,
+      isDesktopApp: true,
+      paperDoi: 'https://doi.org/10.55041/IJSREM34789',
       githubUrl: 'https://github.com/anubhawmishra/Deepfake-Detection-App',
       highlights:
-        '95%+ reported accuracy, OpenCV facial landmark normalization, published research in JETIR and IJSREM.',
+        '>95% reported experimental accuracy, OpenCV facial landmark normalization, published research in JETIR and IJSREM.',
     },
   ],
   publications: [

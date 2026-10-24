@@ -33,7 +33,15 @@ export function getLocalAssistantResponse(userQuery) {
     return {
       reply: `${isOwnerQuery ? 'This portfolio is owned and created by **Anubhaw Mishra**.\n\n' : ''}**Anubhaw Mishra** is a Software Engineer and 2026 Computer Science graduate (Honors in Cyber Security) from Savitribai Phule Pune University (CGPA 7.50/10).
 
-He specializes in Full-Stack Development and AI integration, building production applications with React.js, Node.js, Express.js, PostgreSQL, and Python. His flagship projects include **JARVIS** (AI Resume Matcher with live ATS scoring), **JobTrack** (Full-Stack Application Tracker), **PITCH™** (Cricket E-Commerce with the FRIDAY Gemini assistant), and a peer-reviewed **Deepfake Detection System** (95%+ reported accuracy).
+He specializes in Full-Stack Development, enterprise cloud architectures, and AI integrations, building production applications with Next.js, React.js, TypeScript, Node.js, Express.js, PostgreSQL, and Python.
+
+His featured projects include:
+1. **NEXDESK** — Enterprise IT service desk & asset management with 4-tier RBAC and deterministic SLA engine.
+2. **JARVIS** — AI resume & job matcher with ATS scoring and interview question generation.
+3. **PITCH™** — Full-stack cricket e-commerce with FRIDAY Gemini assistant and Razorpay test payments.
+4. **JobTrack** — SaaS job application tracker with status workflows and JWT authentication.
+5. **APNA TOUR** — Independent Indian travel discovery platform with dark editorial architecture.
+6. **Deepfake Detection System** — CNN computer vision pipeline published in JETIR & IJSREM.
 
 Would you like to explore his projects, technical stack, or research publications?`,
       smartCards: [
@@ -41,8 +49,8 @@ Would you like to explore his projects, technical stack, or research publication
           title: 'Explore Featured Work',
           tech: 'Full-Stack · AI/ML · Systems',
           links: [
-            { label: 'View JARVIS Live', url: 'https://frontend-eight-xi-61.vercel.app/', primary: true },
-            { label: 'View JobTrack Live', url: 'https://job-application-tracker-eosin-gamma.vercel.app/' },
+            { label: 'View NEXDESK Live', url: 'https://nexdesk-enterprise-itsm.vercel.app', primary: true },
+            { label: 'View JARVIS Live', url: 'https://frontend-eight-xi-61.vercel.app/' },
           ],
         },
       ],
@@ -50,7 +58,44 @@ Would you like to explore his projects, technical stack, or research publication
     };
   }
 
-  // 2. Projects - JARVIS
+  // 2a. Projects - NEXDESK
+  if (
+    query.includes('nexdesk') ||
+    query.includes('itsm') ||
+    query.includes('service desk') ||
+    query.includes('incident') ||
+    query.includes('ticket') ||
+    query.includes('sla') ||
+    query.includes('rbac') ||
+    query.includes('hardware asset')
+  ) {
+    const p = projects.find((x) => x.id === 'nexdesk');
+    return {
+      reply: `**NEXDESK — Enterprise IT Service Desk & Incident Management System** is a production-grade internal support and asset management platform built with Next.js 15, TypeScript, PostgreSQL (Neon), and Prisma ORM.
+
+Key Architecture & Features:
+• **4-Tier RBAC**: Administrator, IT Manager, Support Agent, Employee with server-side session cookies (jose JWT & bcrypt)
+• **Incident State Machine**: Linear audited transitions (NEW → TRIAGED → IN_PROGRESS → PENDING_USER → RESOLVED → CLOSED) with 7-day employee reopen window
+• **Deterministic SLA Engine**: Real-time response and resolution deadline calculations per priority tier (P1 Critical: 15m/2h; P2 High: 1h/8h; P3 Medium: 4h/24h; P4 Low: 8h/48h)
+• **Hardware Fleet Custody**: Serialized inventory tracking and formula-injection-safe RFC 4180 CSV exports
+• **Database Persistence**: Tested against live PostgreSQL on Neon with atomic transactions
+• **Automated Testing**: Vitest unit/integration test suite + Playwright E2E browser tests.`,
+      smartCards: [
+        {
+          title: 'NEXDESK — Enterprise ITSM Platform',
+          tag: 'Live Demo Available',
+          tech: 'Next.js 15 · TypeScript · PostgreSQL · Prisma · Vitest',
+          links: [
+            { label: 'View Live Demo', url: p ? p.live : 'https://nexdesk-enterprise-itsm.vercel.app', primary: true },
+            { label: 'View GitHub', url: p ? p.github : 'https://github.com/anubhawmishra/nexdesk-enterprise-itsm' },
+          ],
+        },
+      ],
+      mode: 'grounded-local',
+    };
+  }
+
+  // 2b. Projects - JARVIS
   if (
     query.includes('jarvis') ||
     query.includes('resume') ||
@@ -77,7 +122,7 @@ It parses applicant resumes and compares them with job descriptions to compute A
     };
   }
 
-  // 2. Projects - JobTrack
+  // 2c. Projects - JobTrack
   if (
     query.includes('jobtrack') ||
     query.includes('job track') ||
@@ -104,7 +149,7 @@ Built with React, Node.js, Express, and PostgreSQL using Prisma ORM, it features
     };
   }
 
-  // 3. Projects - PITCH & FRIDAY
+  // 2d. Projects - PITCH & FRIDAY
   if (
     query.includes('pitch') ||
     query.includes('friday') ||
@@ -122,20 +167,59 @@ Key Architecture:
 • Database: PostgreSQL with Prisma ORM
 • Security: JWT authentication & bcrypt password hashing
 • AI: FRIDAY (Google Gemini) for equipment guidance
-• Payments: Razorpay Test Mode integration`,
+• Payments: Razorpay Test Mode integration (sandbox demo, no real financial charges)`,
       smartCards: [
         {
           title: 'PITCH™ — AI Cricket Platform',
-          tag: 'Full Stack & FRIDAY AI',
+          tag: 'Live Demo (Test Mode)',
           tech: 'React · Node.js · Postgres · Prisma · Gemini · Razorpay',
-          links: [{ label: 'View GitHub', url: p.github, primary: true }],
+          links: [
+            { label: 'View Live Store', url: p ? p.live : 'https://pitch-cricket-store.vercel.app/', primary: true },
+            { label: 'View GitHub', url: p ? p.github : 'https://github.com/anubhawmishra/PITCH-Cricket-E-Commerce' },
+          ],
         },
       ],
       mode: 'grounded-local',
     };
   }
 
-  // 4. Projects - Deepfake Detection
+  // 2e. Projects - APNA TOUR
+  if (
+    query.includes('apna tour') ||
+    query.includes('apnatour') ||
+    query.includes('travel') ||
+    query.includes('monument') ||
+    query.includes('fort') ||
+    query.includes('itinerary') ||
+    query.includes('culinary') ||
+    query.includes('food trail')
+  ) {
+    const p = projects.find((x) => x.id === 'apna-tour');
+    return {
+      reply: `**APNA TOUR — Indian Travel Discovery & Editorial Platform** is an independent, human-first travel discovery application built with Next.js App Router, TypeScript, and Tailwind CSS.
+
+Key Highlights:
+• **Verified Monument Logistics**: ASI timings, ticket fee guidelines, and seasonal pacing advice across 28 Indian states
+• **Dark Editorial Design**: Bespoke editorial aesthetic with Newsreader serif and Plus Jakarta Sans typography
+• **Regional Cartographic Atlas**: Structured exploration across North, South, West, Central, and Northeast India
+• **Regional Food Trails**: Detailed cultural food documentation (Puneri Misal, South Bombay Cafes, Jaipur Bazaars)
+• **SEO & Structured Data**: Dynamic Schema.org JSON-LD structured data for tourist attractions and itineraries.`,
+      smartCards: [
+        {
+          title: 'APNA TOUR — Editorial Travel Atlas',
+          tag: 'Live Demo Available',
+          tech: 'Next.js · React · TypeScript · Tailwind · Prisma',
+          links: [
+            { label: 'View Live Demo', url: p ? p.live : 'https://apna-tour-ruddy.vercel.app/', primary: true },
+            { label: 'View GitHub', url: p ? p.github : 'https://github.com/anubhawmishra/apna-tour' },
+          ],
+        },
+      ],
+      mode: 'grounded-local',
+    };
+  }
+
+  // 2f. Projects - Deepfake Detection
   if (
     query.includes('deepfake') ||
     query.includes('detection') ||
@@ -150,12 +234,13 @@ Key Architecture:
 Key Highlights:
 • Preprocessing: OpenCV for facial landmark extraction, normalization, and face alignment
 • Model: Deep CNN architecture trained in Python using TensorFlow and Keras
-• Reported Accuracy: 95%+ classification accuracy on test evaluations
+• Reported Accuracy: >95% reported experimental accuracy on evaluated splits
+• Platform: Desktop Python Application with Tkinter GUI
 • Research: Published in two peer-reviewed academic journals (JETIR & IJSREM with DOI: 10.55041/IJSREM34789).`,
       smartCards: [
         {
           title: 'Deepfake Detection System',
-          tag: '95%+ Accuracy · Published',
+          tag: '>95% Accuracy · Published',
           tech: 'Python · TensorFlow · Keras · CNN · OpenCV',
           links: [
             { label: 'View GitHub', url: p.github, primary: true },
@@ -176,24 +261,26 @@ Key Highlights:
     query.includes('build')
   ) {
     return {
-      reply: `Anubhaw has built 4 major software engineering and AI projects:
+      reply: `Anubhaw has engineered 6 verified software engineering, enterprise cloud, and AI projects:
 
-1. **AI Resume & Job Matcher — JARVIS**: Full-stack ATS compatibility & resume analysis with LLM APIs and tailored interview preparation. (Live Demo Available)
-2. **JobTrack — Job Application Tracker**: Full-stack application lifecycle tracker with PostgreSQL, Prisma ORM, and JWT authentication. (Live Demo Available)
-3. **PITCH™ — Full-Stack AI Cricket Platform**: Cricket marketplace featuring the FRIDAY conversational shopping assistant (Google Gemini), custom bat builder, and Razorpay test payments.
-4. **Deepfake Detection System**: CNN-based computer vision pipeline with OpenCV achieving 95%+ reported accuracy, published in JETIR and IJSREM.
+1. **NEXDESK — Enterprise IT Service Desk**: Next.js 15, TypeScript, PostgreSQL (Neon), Prisma ORM, 4-tier RBAC, deterministic SLA engine, Vitest & Playwright. (Live Demo Available)
+2. **AI Resume & Job Matcher — JARVIS**: Full-stack ATS compatibility & resume analysis with LLM APIs and tailored interview preparation. (Live Demo Available)
+3. **PITCH™ — Full-Stack AI Cricket E-Commerce**: Cricket marketplace featuring the FRIDAY conversational shopping assistant (Google Gemini), custom bat builder, and Razorpay test payments. (Live Store Available)
+4. **JobTrack — Job Application Tracker**: Full-stack application lifecycle tracker with PostgreSQL, Prisma ORM, and JWT authentication. (Live Demo Available)
+5. **APNA TOUR — Indian Travel Discovery Platform**: Human-first editorial discovery platform across 28 states with Dark Editorial UI. (Live Demo Available)
+6. **Deepfake Detection System**: CNN-based computer vision forensic desktop application with OpenCV achieving >95% reported experimental accuracy, published in JETIR and IJSREM.
 
 Which project would you like to explore in detail?`,
       smartCards: [
         {
-          title: 'JARVIS (Live)',
-          tech: 'React · Node · LLM API',
-          links: [{ label: 'Live Demo', url: 'https://frontend-eight-xi-61.vercel.app/', primary: true }],
+          title: 'NEXDESK (Live Demo)',
+          tech: 'Next.js 15 · TypeScript · PostgreSQL',
+          links: [{ label: 'Live Demo', url: 'https://nexdesk-enterprise-itsm.vercel.app', primary: true }],
         },
         {
-          title: 'JobTrack (Live)',
-          tech: 'React · Postgres · Prisma',
-          links: [{ label: 'Live Demo', url: 'https://job-application-tracker-eosin-gamma.vercel.app/', primary: true }],
+          title: 'JARVIS (Live Demo)',
+          tech: 'React · Node · LLM API',
+          links: [{ label: 'Live Demo', url: 'https://frontend-eight-xi-61.vercel.app/', primary: true }],
         },
       ],
       mode: 'grounded-local',

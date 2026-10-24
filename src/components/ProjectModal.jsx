@@ -79,7 +79,7 @@ export default function ProjectModal({ project, onClose }) {
           </div>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-3 mb-8 pb-6 border-b border-border-color">
+          <div className="flex flex-wrap items-center gap-3 mb-6 pb-6 border-b border-border-color">
             {project.live && (
               <a
                 href={project.live}
@@ -88,7 +88,7 @@ export default function ProjectModal({ project, onClose }) {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-accent to-accent-glow text-dark-bg font-semibold text-sm glow-shadow hover:glow-shadow-lg transition-all"
               >
                 <ExternalLink className="w-4 h-4" />
-                Live Demo
+                Live Demo {project.isTestModePayment ? '(Test Mode)' : ''}
               </a>
             )}
             {project.github && (
@@ -102,9 +102,9 @@ export default function ProjectModal({ project, onClose }) {
                 Source Code
               </a>
             )}
-            {project.id === 'deepfake' && (
+            {project.doi && (
               <a
-                href="https://doi.org/10.55041/IJSREM34789"
+                href={project.doi}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl glass border border-cyan-500/40 text-cyan-400 hover:border-cyan-400 text-sm font-medium transition-all"
@@ -113,7 +113,20 @@ export default function ProjectModal({ project, onClose }) {
                 View Publication (DOI)
               </a>
             )}
+            {project.isDesktopApp && (
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-dark-bg border border-border-color text-text-secondary text-xs font-mono">
+                🖥️ Desktop Application (Python &amp; Tkinter GUI)
+              </span>
+            )}
           </div>
+
+          {/* Test mode disclosure alert */}
+          {project.isTestModePayment && (
+            <div className="mb-6 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 flex-shrink-0" />
+              <span>Payments notice: Razorpay Sandbox / Test Mode credentials configured for demonstration. No real financial charges occur.</span>
+            </div>
+          )}
 
           {/* Detailed Content Grid */}
           <div className="space-y-6 text-sm">

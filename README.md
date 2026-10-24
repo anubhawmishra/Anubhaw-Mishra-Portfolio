@@ -8,13 +8,14 @@ Deployed on Vercel: [https://anubhaw-mishra-portfolio.vercel.app](https://anubha
 
 ## ⚡ Tech Stack & Architecture
 
-- **Frontend**: React 18 + Vite (ESM fast dev & production bundling)
+- **Frontend**: Next.js 14, React 18 + Vite (ESM fast dev & production bundling), TypeScript
 - **Styling**: Tailwind CSS + Custom Dark Theme Glassmorphism System
 - **Motion & Interactions**: Framer Motion (page transitions, 3D tilt cards, modals, reactive chat drawer)
 - **3D Graphics**: Three.js + React Three Fiber (`@react-three/fiber`, `@react-three/drei`)
 - **Icons**: React Icons (`react-icons`) + Lucide React (`lucide-react`)
+- **Testing & Quality Assurance**: Vitest, automated unit & integration testing
 - **AI Assistant**: **Anubhaw Assistant** (Custom 3D-styled reactive animated avatar + Google Gemini serverless API endpoint `/api/assistant` + deterministic grounded fallback engine)
-- **Persistence**: Relational PostgreSQL + Prisma ORM (demonstrated in JobTrack & PITCH™)
+- **Persistence**: Relational PostgreSQL (Neon Cloud & Supabase) + Prisma ORM (demonstrated in NEXDESK, JobTrack & PITCH™)
 - **Security**: Server-side API key isolation (zero client key exposure), strict input sanitization, prompt injection defenses
 
 ---
@@ -24,23 +25,25 @@ Deployed on Vercel: [https://anubhaw-mishra-portfolio.vercel.app](https://anubha
 1. **Hero**: Animated gradient typography, live rotating role indicator (`Software Engineer`, `Full Stack Developer`, `Frontend Developer`, `React Developer`, `AI/ML Enthusiast`), interactive mouse-tracking spotlight, React Three Fiber particle field, and instant recruiter CTAs.
 2. **About**: Verified academic background (B.E. Computer Science, SPPU, Feb 2021 – Feb 2026, CGPA 7.50/10, Honors in Cyber Security), full-stack focus, animated credential cards (Location, Degree, Graduation, Specialization, Focus).
 3. **Skills**: Categorized into 6 verified domains:
-   - Programming Languages (Python, Java, JavaScript, SQL, C)
-   - Frontend Development (React.js, HTML5, CSS3, Tailwind CSS, Responsive Web Design)
-   - Backend & APIs (Node.js, Express.js, REST APIs)
+   - Programming Languages (Python, Java, JavaScript, TypeScript, SQL, C)
+   - Frontend Development (Next.js, React.js, TypeScript, HTML5, CSS3, Tailwind CSS, Responsive Web Design)
+   - Backend & APIs (Node.js, Express.js, Next.js Server Actions & Route Handlers, REST APIs)
    - Databases & ORM (PostgreSQL, SQLite, Prisma ORM)
+   - Testing & Tools (Vitest, Git, GitHub, Postman, CI/CD, Agile/Scrum, Testing & Debugging, DSA, OOP)
    - AI & Machine Learning (Google Gemini, LLM API Integration, TensorFlow, Keras, CNN, OpenCV)
-   - Tools & Engineering Practices (Git, GitHub, Postman, CI/CD, Agile/Scrum, Testing & Debugging, DSA, OOP)
 4. **Experience**: Oasis Infobyte (Web Development & Designing Intern, Jan 2023 – Feb 2023). Responsive UI engineering, REST API integration, Git-based collaborative reviews, cross-browser manual testing.
-5. **Featured Projects**:
-   - **AI Resume & Job Matcher — JARVIS**: AI-powered resume and job description analysis with ATS compatibility scoring and tailored interview prep. [Live Demo](https://frontend-eight-xi-61.vercel.app/) · [GitHub](https://github.com/anubhawmishra/AI-Resume-Job-Matcher)
-   - **JobTrack — Job Application Tracker**: Modern SaaS job application tracker with status pipeline, recruiter contacts, and JWT auth backed by PostgreSQL/Prisma. [Live Demo](https://job-application-tracker-eosin-gamma.vercel.app/) · [GitHub](https://github.com/anubhawmishra/Job-Application-Tracker)
-   - **PITCH™ — AI Cricket E-Commerce Platform**: Full-stack cricket e-commerce marketplace featuring FRIDAY (conversational shopping assistant powered by Google Gemini), custom bat builder, and Razorpay test mode payments. [GitHub](https://github.com/anubhawmishra/PITCH-Cricket-E-Commerce)
-   - **Deepfake Detection System**: CNN-based computer vision deep learning model with OpenCV preprocessing for detecting manipulated facial imagery (95%+ reported accuracy). [GitHub](https://github.com/anubhawmishra/Deepfake-Detection-App) · [IJSREM DOI](https://doi.org/10.55041/IJSREM34789)
-6. **Project Details Modal**: Interactive deep-dive modal displaying Problem, Solution, Architecture, Features, and Engineering Highlights.
+5. **Featured Projects (6 Projects)**:
+   - **NEXDESK — Enterprise IT Service Desk & Incident Management System**: Production-grade full-stack ITSM platform with multi-tier role-based access control (Employee, Technician, Manager, Admin), ticket lifecycle states, severity/priority matrices, SLA tracking, audit trails, and dashboard analytics. Built with Next.js 14 App Router, TypeScript, Prisma ORM, and PostgreSQL (Neon Cloud). [Live Demo](https://nexdesk-enterprise-itsm.vercel.app) · [GitHub](https://github.com/anubhawmishra/nexdesk-enterprise-itsm)
+   - **AI Resume & Job Matcher — JARVIS**: AI-powered resume and job description analysis with ATS compatibility scoring, skill gap detection, bullet point improvements, and tailored interview prep questions. [Live Demo](https://frontend-eight-xi-61.vercel.app/) · [GitHub](https://github.com/anubhawmishra/AI-Resume-Job-Matcher)
+   - **PITCH™ — Cricket E-Commerce Platform**: Full-stack cricket e-commerce marketplace featuring FRIDAY (conversational shopping assistant powered by Google Gemini), interactive custom bat builder, cart/wishlist/checkout, and Razorpay Sandbox test mode payments. [Live Store Demo](https://pitch-cricket-store.vercel.app/) · [GitHub](https://github.com/anubhawmishra/PITCH-Cricket-E-Commerce)
+   - **JobTrack — Job Application Tracker**: Modern SaaS job application tracker with status pipeline (Applied, Interviewing, Offer, Rejected), recruiter contacts, search, filtering, and JWT authentication backed by PostgreSQL and Prisma ORM. [Live Demo](https://job-application-tracker-eosin-gamma.vercel.app/) · [GitHub](https://github.com/anubhawmishra/Job-Application-Tracker)
+   - **APNA TOUR — Travel Discovery Portal**: Modern travel exploration and itinerary discovery portal featuring responsive destination browsing, curated tour packages, category filtering, and booking inquiry workflows. [Live Demo](https://apna-tour-ruddy.vercel.app/) · [GitHub](https://github.com/anubhawmishra/apna-tour)
+   - **Deepfake Detection System**: CNN-based computer vision deep learning desktop application with OpenCV preprocessing for detecting manipulated facial imagery (Reported >95% experimental accuracy). Published in 2 peer-reviewed journals. [GitHub](https://github.com/anubhawmishra/Deepfake-Detection-App) · [IJSREM DOI (10.55041/IJSREM34789)](https://doi.org/10.55041/IJSREM34789)
+6. **Project Details Modal**: Interactive deep-dive modal displaying Problem, Solution, Architecture, Features, Engineering Highlights, live demo buttons, source code links, and research paper DOIs.
 7. **Research & Publications**:
    - *"Guarding Authenticity: A Deepfake Detection System"* — **IJSREM** (Vol. 8, Issue 5, May 2024, Impact Factor: 8.448, DOI: `10.55041/IJSREM34789`)
    - *"Guarding Authenticity: Detection for Deepfake"* — **JETIR** (Vol. 11, Issue 5, May 2024, Impact Factor: 7.95)
-8. **Education & Certifications**: B.E. CS at Savitribai Phule Pune University, coursework breakdown, and professional credentials (Physics Wallah, IIT Bombay, Internshala, Goldman Sachs).
+8. **Education & Certifications**: B.E. CS at Savitribai Phule Pune University (CGPA 7.50), coursework breakdown, and professional credentials (Physics Wallah, IIT Bombay, Internshala, Goldman Sachs).
 9. **Contact**: Direct email, phone, location, LinkedIn, GitHub, LeetCode, and downloadable resume.
 
 ---

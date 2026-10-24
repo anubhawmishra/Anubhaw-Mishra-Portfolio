@@ -18,13 +18,13 @@ import { personal } from '../../data/content';
 const SUGGESTED_QUESTIONS = [
   'Tell me about Anubhaw',
   'What projects has he built?',
+  'Tell me about NEXDESK',
   'Tell me about JARVIS',
-  'Explain JobTrack',
   'What is PITCH™?',
+  'Explain JobTrack',
+  'Explore APNA TOUR',
   'Tell me about Deepfake research',
   'What technologies does he know?',
-  'What is Anubhaw\'s CGPA?',
-  'What was his internship?',
   'How can I contact him?',
 ];
 

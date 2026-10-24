@@ -24,6 +24,9 @@ import {
   SiPostman,
   SiExpress,
   SiC,
+  SiTypescript,
+  SiNextdotjs,
+  SiVitest,
 } from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 import { BsCpu, BsBraces } from 'react-icons/bs';
@@ -34,6 +37,7 @@ import { FiLayers, FiCode, FiRepeat, FiGitPullRequest, FiCheckCircle } from 'rea
 
 const iconMap = {
   // Programming Languages
+  TypeScript: { icon: SiTypescript, color: '#3178C6' },
   Python: { icon: FaPython, color: '#38BDF8' },
   Java: { icon: FaJava, color: '#EF4444' },
   JavaScript: { icon: FaJs, color: '#FACC15' },
@@ -41,6 +45,7 @@ const iconMap = {
   C: { icon: SiC, color: '#A855F7' },
 
   // Frontend
+  'Next.js': { icon: SiNextdotjs, color: '#FFFFFF' },
   'React.js': { icon: FaReact, color: '#22D3EE' },
   HTML5: { icon: FaHtml5, color: '#F97316' },
   CSS3: { icon: FaCss3Alt, color: '#38BDF8' },
@@ -69,6 +74,7 @@ const iconMap = {
   Git: { icon: FaGitAlt, color: '#F97316' },
   GitHub: { icon: FaGithub, color: '#F1F5F9' },
   Postman: { icon: SiPostman, color: '#FB923C' },
+  Vitest: { icon: SiVitest, color: '#6E9F18' },
   'CI/CD': { icon: FiRepeat, color: '#38BDF8' },
   'Agile / Scrum': { icon: FiGitPullRequest, color: '#4ADE80' },
   'Testing & Debugging': { icon: FiCheckCircle, color: '#A78BFA' },
